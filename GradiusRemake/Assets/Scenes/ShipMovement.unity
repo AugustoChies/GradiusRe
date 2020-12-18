@@ -402,3 +402,72 @@ MonoBehaviour:
   controls: {fileID: 11400000, guid: e716421d3c73acf4d89c974a8eaf7870, type: 2}
   speed: 3
   spriteAnim: {fileID: 1297201774}
+--- !u!1001 &8039115301789205186
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5342555513274355503, guid: 24ef9a7f0d1bcc541b2624476e75bb21,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 5342555513274355503, guid: 24ef9a7f0d1bcc541b2624476e75bb21,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5342555513274355503, guid: 24ef9a7f0d1bcc541b2624476e75bb21,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -7.9223905
+      objectReference: {fileID: 0}
+    - target: {fileID: 5342555513274355503, guid: 24ef9a7f0d1bcc541b2624476e75bb21,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5342555513274355503, guid: 24ef9a7f0d1bcc541b2624476e75bb21,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5342555513274355503, guid: 24ef9a7f0d1bcc541b2624476e75bb21,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5342555513274355503, guid: 24ef9a7f0d1bcc541b2624476e75bb21,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5342555513274355503, guid: 24ef9a7f0d1bcc541b2624476e75bb21,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5342555513274355503, guid: 24ef9a7f0d1bcc541b2624476e75bb21,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5342555513274355503, guid: 24ef9a7f0d1bcc541b2624476e75bb21,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5342555513274355503, guid: 24ef9a7f0d1bcc541b2624476e75bb21,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9146889236485702108, guid: 24ef9a7f0d1bcc541b2624476e75bb21,
+        type: 3}
+      propertyPath: m_Name
+      value: fans
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 24ef9a7f0d1bcc541b2624476e75bb21, type: 3}
