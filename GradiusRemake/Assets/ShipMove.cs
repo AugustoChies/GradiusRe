@@ -11,6 +11,7 @@ public class ShipMove : MonoBehaviour
 
 
     private Rigidbody2D rb;
+    public Animator spriteAnim;
     // Start is called before the first frame update
     void Start()
     {
@@ -44,5 +45,6 @@ public class ShipMove : MonoBehaviour
     private void FixedUpdate()
     {
         rb.MovePosition(this.rb.position + direction.normalized * speed * Time.deltaTime);
+        spriteAnim.SetInteger("Direction", (int)direction.y);
     }
 }
