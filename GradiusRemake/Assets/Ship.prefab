@@ -253,6 +253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 672b72e3910bfc94c987968fec6bc1ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stats: {fileID: 11400000, guid: cb31a4a88c4efcb4282a10152180d085, type: 2}
   controls: {fileID: 11400000, guid: e716421d3c73acf4d89c974a8eaf7870, type: 2}
   speed: 3
   spriteAnim: {fileID: 7524132902139981617}

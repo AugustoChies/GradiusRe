@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ShipMove : MonoBehaviour
 {
+    public GlobalStats stats;
     public ControlsObj controls;
     public Vector2 direction { get; private set; }
     [SerializeField]
@@ -44,6 +45,7 @@ public class ShipMove : MonoBehaviour
 
     private void FixedUpdate()
     {
+        rb.position = this.rb.position + Vector2.right * stats.scrollSpeed * Time.deltaTime;
         rb.MovePosition(this.rb.position + direction.normalized * speed * Time.deltaTime);
         spriteAnim.SetInteger("Direction", (int)direction.y);
     }
