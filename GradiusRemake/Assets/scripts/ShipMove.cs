@@ -17,11 +17,13 @@ public class ShipMove : MonoBehaviour
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+
         Vector2 temp_direction = Vector2.zero;
         if (Input.GetKey(controls.up))
         {
@@ -41,6 +43,7 @@ public class ShipMove : MonoBehaviour
         }
 
         direction = temp_direction;
+        stats.playerPosition = rb.position;
     }
 
     private void FixedUpdate()
@@ -48,5 +51,6 @@ public class ShipMove : MonoBehaviour
         rb.position = this.rb.position + Vector2.right * stats.scrollSpeed * Time.deltaTime;
         rb.MovePosition(this.rb.position + direction.normalized * speed * Time.deltaTime);
         spriteAnim.SetInteger("Direction", (int)direction.y);
+        //stats.playerPosition = rb.position; //não sei pq mas bugou pra mim e n atualiza se isso n for no update normal
     }
 }
