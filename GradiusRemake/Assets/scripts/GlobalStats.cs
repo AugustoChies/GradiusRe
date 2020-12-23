@@ -6,4 +6,5 @@ public class GlobalStats : ScriptableObject
 {
     public float scrollSpeed;
     public int playerLifes;
+    public Vector2 playerPosition;
 }
