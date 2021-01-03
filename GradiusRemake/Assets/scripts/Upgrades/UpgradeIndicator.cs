@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class UpgradeIndicator : MonoBehaviour
 {
+    public int currentImageId;
     public Sprite[] sprites;
     protected Image myImage;
-    // Start is called before the first frame update
     void Awake()
     {
         myImage = this.GetComponent<Image>();
@@ -15,6 +15,7 @@ public class UpgradeIndicator : MonoBehaviour
 
     public void ChangeGraphic(int id)
     {
-        myImage.sprite = sprites[id];
+        currentImageId = id;
+        myImage.sprite = sprites[id];        
     }
 }

@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class ShipMove : MonoBehaviour
 {
     public GlobalStats stats;
     public ControlsObj controls;
     public Vector2 direction { get; private set; }
+    public UpgradeController controller;
     [SerializeField]
     private float speed;
 
@@ -14,10 +16,14 @@ public class ShipMove : MonoBehaviour
     private Rigidbody2D rb;
     public Animator spriteAnim;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         rb = this.GetComponent<Rigidbody2D>();
-        
+        controller = GameObject.Find("Canvas").GetComponent<UpgradeController>();
+        if (controller == null)
+        {
+            throw new Exception("UpgradeController Object not Found");
+        }
     }
 
     // Update is called once per frame
@@ -44,6 +50,13 @@ public class ShipMove : MonoBehaviour
 
         direction = temp_direction;
         stats.playerPosition = rb.position;
+
+
+        //DELETE LATER
+        if(Input.GetKeyDown(KeyCode.U))
+        {
+            controller.NextCurrent();
+        }
     }
 
     private void FixedUpdate()
