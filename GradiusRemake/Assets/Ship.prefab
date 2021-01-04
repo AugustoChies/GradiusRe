@@ -302,10 +302,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67fa6e12da13df04b8b08089edfd1130, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inactiveShots: []
-  activeShots: []
+  inactiveRegShots: []
+  activeRegShots: []
+  inactiveUpShots: []
+  activeUpShots: []
+  inactiveLaserShots: []
+  activeLaserShots: []
   controls: {fileID: 11400000, guid: e716421d3c73acf4d89c974a8eaf7870, type: 2}
   holdFireTime: 0.5
   regularshot: {fileID: 8263716229099083338, guid: 6fb3e13be6199204d94a4ba94153c27c,
     type: 3}
+  upwardShot: {fileID: 8263716229099083338, guid: b7fde63d3ca4bee4a9c6c142a113786b,
+    type: 3}
+  laser: {fileID: 8263716229099083338, guid: 3527caa94f4e9cb49b66799f3b114937, type: 3}
   fireOriginPos: {fileID: 1630501754136392091}
+  controller: {fileID: 0}

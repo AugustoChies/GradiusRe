@@ -46,7 +46,9 @@ public class UpgradeController : MonoBehaviour
                         if (!_double)
                         {
                             _double = true;
+                            laser = false;
                             indicators[(int)currentSelected].ChangeGraphic(2);
+                            indicators[(int)UpgradeType.laser].ChangeGraphic(0);
                             currentSelected = -1;
                         }
                         break;
@@ -54,7 +56,9 @@ public class UpgradeController : MonoBehaviour
                         if (!laser)
                         {
                             laser = true;
+                            _double = false;
                             indicators[(int)currentSelected].ChangeGraphic(2);
+                            indicators[(int)UpgradeType._double].ChangeGraphic(0);
                             currentSelected = -1;
                         }
                         break;

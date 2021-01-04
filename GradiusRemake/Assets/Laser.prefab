@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8263716229099083337}
   - component: {fileID: 6757859954706379614}
   m_Layer: 0
-  m_Name: Shot
+  m_Name: Laser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73,8 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -3163672317633725044, guid: 78b80024522cca245ab4d43e99cf51ec,
-    type: 3}
+  m_Sprite: {fileID: 458664243300898282, guid: 78b80024522cca245ab4d43e99cf51ec, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,18 +97,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.005}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.11, y: 0.1}
+    oldSize: {x: 0.18, y: 0.06}
     newSize: {x: 0.11, y: 0.1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.1, y: 0.05}
+  m_Size: {x: 0.18, y: 0.05}
   m_EdgeRadius: 0
 --- !u!50 &8263716229099083337
 Rigidbody2D:
