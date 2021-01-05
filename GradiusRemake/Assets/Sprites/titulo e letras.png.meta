@@ -152,6 +152,9 @@ TextureImporter:
   - first:
       213: -4626359400482086566
     second: NES - Gradius - HUD (1)_49
+  - first:
+      213: 6039557054438553196
+    second: NES - Gradius - HUD (1)_99
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -1294,6 +1297,27 @@ TextureImporter:
       bones: []
       spriteID: 7aa3f25d17f9aaf60800000000000000
       internalID: 8046418995507575463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NES - Gradius - HUD (1)_99
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 29
+        width: 31
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c66b38e5421d0d350800000000000000
+      internalID: 6039557054438553196
       vertices: []
       indices: 
       edges: []
