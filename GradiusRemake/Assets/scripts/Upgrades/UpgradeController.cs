@@ -13,12 +13,17 @@ public class UpgradeController : MonoBehaviour
     public int speedboost,option;
     public bool missile,_double,laser,shield;
 
+
+    public delegate void GotOption();
+    public GotOption optionAction;
     // Start is called before the first frame update
     void Start()
     {
         currentSelected = -1;
         ResetUpgrades();
     }
+
+    
 
     // Update is called once per frame
     void Update()
@@ -65,6 +70,7 @@ public class UpgradeController : MonoBehaviour
                     case UpgradeType.option:
                         if (option < 2)
                         {
+                            optionAction();
                             option++;
                             if(option == 2)
                             {

@@ -33,6 +33,7 @@ public class ShipMove : MonoBehaviour
         {
             throw new Exception("UpgradeController Object not Found");
         }
+        controller.optionAction += SpawnOption;
         pastPositions.Add(rb.position);//add position 0
     }
 
@@ -64,16 +65,12 @@ public class ShipMove : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.U))
         {
             controller.NextCurrent();
-        }
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            SpawnOption();
-        }
+        }       
     }
 
     private void FixedUpdate()
     {       
-        rb.MovePosition(this.rb.position + direction.normalized * speed * Time.deltaTime);
+        rb.MovePosition(this.rb.position + direction.normalized * (speed + (speed/2 * controller.speedboost)) * Time.deltaTime);
         if(direction != Vector2.zero) // Only during movement
         {
             pastPositions.Add(rb.position);
