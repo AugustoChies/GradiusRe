@@ -12,6 +12,7 @@ public class generalenemyship : MonoBehaviour
     private bool isStarting;
     public bool goingUp;
     public bool goingDown;
+    public bool ded = false;
     
     private Rigidbody2D general;
     public Animator spriteAnim;
@@ -30,51 +31,57 @@ public class generalenemyship : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if(col.gameObject.name == "Ship") //colocar aqui o nome do missil
-            //stats.SmallEnemyDead(this.gameObject);
+        //if(col.gameObject.name == "Ship") //colocar aqui o nome do missil
             {
-                deathPos = this.general.position; //salva o lugar onde o inimigo morreu
-                this.gameObject.SetActive(false); //desliga o objeto
-                stats.AnimacaoDeMorte(deathPos); //criar corotina, chamar a animação de morte e esperar x segundos até desligar o objeto
+                spriteAnim.SetBool("IsDed", true);
+                ded = true;
+                //colocar aqui algo q aumente a pontuação.............................................................................................................
+                StartCoroutine(DedNow());
+                
                 
             }
             
     }
 
-    
+    IEnumerator DedNow()
+    {
+        yield return new WaitForSeconds(0.5f);
+        this.gameObject.SetActive(false); //desliga o objeto
+    }
 
     // Update is called once per frame
     void Update()
     {
         generalDirection.y = nullExempleDirection.y;
-        
-        if(isStarting) //aqui vai ser pra quando ele entrar na tela, ainda tem que ver
+
+
+        if(!ded)
         {
-            isStarting = false;
-        }
-        if((stats.playerPosition.y - 0.1) > this.general.position.y)
-        {
-            generalDirection.y += 5;//ver aqui valor de velocidade quanto sobe ou desce
-            goingUp = true;
-            spriteAnim.SetBool("Up", goingUp);
-        }else
-        if((stats.playerPosition.y + 0.1) < this.general.position.y)
-        {
-            generalDirection.y -= 5;//ver aqui valor
-            goingDown = true;
-            spriteAnim.SetBool("Down", goingDown);
-        }else
-        {
-            goingDown = false;
-            goingUp = false;
-            spriteAnim.SetBool("Down", goingDown);
-            spriteAnim.SetBool("Up", goingUp);
-        }        
+            if(isStarting) //aqui vai ser pra quando ele entrar na tela, ainda tem que ver
+            {
+                isStarting = false;
+            }
+            if((stats.playerPosition.y - 0.1) > this.general.position.y)
+            {
+                generalDirection.y += 5;//ver aqui valor de velocidade quanto sobe ou desce
+                goingUp = true;
+                spriteAnim.SetBool("Up", goingUp);
+            }else
+            if((stats.playerPosition.y + 0.1) < this.general.position.y)
+            {
+                generalDirection.y -= 5;//ver aqui valor
+                goingDown = true;
+                spriteAnim.SetBool("Down", goingDown);
+            }else
+            {
+                goingDown = false;
+                goingUp = false;
+                spriteAnim.SetBool("Down", goingDown);
+                spriteAnim.SetBool("Up", goingUp);
+            }        
             
-        
-    
-        general.MovePosition(this.general.position + generalDirection * generalSpeed * Time.deltaTime);
+            general.MovePosition(this.general.position + generalDirection * generalSpeed * Time.deltaTime);
+        }
     }
 }
-
 
