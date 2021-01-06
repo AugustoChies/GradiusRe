@@ -14,8 +14,8 @@ public class UpgradeController : MonoBehaviour
     public bool missile,_double,laser,shield;
 
 
-    public delegate void GotOption();
-    public GotOption optionAction;
+    public delegate void GotPower();
+    public GotPower optionAction,shieldAction;
     // Start is called before the first frame update
     void Start()
     {
@@ -88,6 +88,7 @@ public class UpgradeController : MonoBehaviour
                         if (!shield)
                         {
                             shield = true;
+                            shieldAction();
                             indicators[(int)currentSelected].ChangeGraphic(2);
                             currentSelected = -1;
                         }
@@ -112,6 +113,19 @@ public class UpgradeController : MonoBehaviour
             currentSelected += 1;
             currentSelected %= indicators.Length;
             indicators[(int)currentSelected].ChangeGraphic(indicators[(int)currentSelected].currentImageId + 1);
+        }
+    }
+
+    public void DisableShieldIcon()
+    {
+        shield = false;
+        if (currentSelected == (int)UpgradeType.shield)
+        {
+            indicators[(int)UpgradeType.shield].ChangeGraphic(1);
+        }
+        else
+        {
+            indicators[(int)UpgradeType.shield].ChangeGraphic(0);
         }
     }
 

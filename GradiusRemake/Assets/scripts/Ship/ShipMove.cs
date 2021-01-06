@@ -14,26 +14,35 @@ public class ShipMove : MonoBehaviour
 
 
     private Rigidbody2D rb;
-    public Animator spriteAnim;
+
+    public Animator spriteAnim,shieldAnim;
+    public SpriteRenderer shieldSprite;
+    public HitDetection hd;
+    public int shieldMaxHp;
+    protected int shieldHP;
 
 
     public int pastPositionsSizeLimit;
     public int optionMovementStartDelay;
-    public List<GameObject> options;
+    protected List<GameObject> options;
     public GameObject optionPrefab;
-    public List<Vector2> pastPositions;
+    protected List<Vector2> pastPositions;
     // Start is called before the first frame update
     void Awake()
     {
         pastPositions = new List<Vector2>();        
         options = new List<GameObject>();
         rb = this.GetComponent<Rigidbody2D>();
+        shieldSprite.enabled = false;
+        shieldAnim.enabled = false;
         controller = GameObject.Find("Canvas").GetComponent<UpgradeController>();
         if (controller == null)
         {
             throw new Exception("UpgradeController Object not Found");
         }
         controller.optionAction += SpawnOption;
+        controller.shieldAction += ActivateShield;
+        hd.hitByEnemy += GetHit;
         pastPositions.Add(rb.position);//add position 0
     }
 
@@ -101,6 +110,42 @@ public class ShipMove : MonoBehaviour
         token.GetComponent<OptionBehavoir>().moveDelay = optionMovementStartDelay * (options.Count + 1);
         token.GetComponent<OptionBehavoir>().pastPositions = pastPositions;
         options.Add(token);        
+    }
+
+    public void ActivateShield()
+    {
+        shieldSprite.enabled = true;
+        shieldAnim.enabled = true;
+        shieldHP = shieldMaxHp;
+        shieldAnim.SetBool("Weak", false);
+    }
+
+    public void DisableShield()
+    {
+        shieldSprite.enabled = false;
+        shieldAnim.enabled = false;
+        controller.DisableShieldIcon();
+    }
+
+    public void GetHit()
+    {
+        if(shieldHP > 0)
+        {
+            shieldHP--;
+            if(shieldHP == 1)
+            {
+                shieldAnim.SetBool("Weak", true);
+            }
+            if (shieldHP == 0)
+            {
+                DisableShield();
+            }
+        }
+        else
+        {
+            //die
+            Debug.Log("I am die. Thank you forever.");
+        }
     }
 
 }
