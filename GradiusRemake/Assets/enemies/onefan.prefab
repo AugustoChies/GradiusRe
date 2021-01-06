@@ -94,7 +94,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 904c1a4db44a33940a378645ed452bf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stats: {fileID: 11400000, guid: cb31a4a88c4efcb4282a10152180d085, type: 2}
   fanDirection: {x: 0, y: 0}
+  isItDed: 0
+  spriteAnim: {fileID: 6412472086445797380}
 --- !u!212 &-3829076434430995284
 SpriteRenderer:
   m_ObjectHideFlags: 0

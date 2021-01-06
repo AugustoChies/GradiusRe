@@ -96,8 +96,10 @@ MonoBehaviour:
   stats: {fileID: 11400000, guid: cb31a4a88c4efcb4282a10152180d085, type: 2}
   generalDirection: {x: 0, y: 0}
   nullExempleDirection: {x: 0, y: 0}
+  deathPos: {x: 0, y: 0}
   goingUp: 0
   goingDown: 0
+  ded: 0
   spriteAnim: {fileID: 3707137170147401905}
 --- !u!1 &3707137170147401870
 GameObject:
