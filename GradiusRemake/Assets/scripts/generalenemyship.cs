@@ -7,6 +7,7 @@ public class generalenemyship : MonoBehaviour
     public GlobalStats stats;
     public Vector2 generalDirection = Vector2.zero;
     public Vector2 nullExempleDirection = Vector2.zero;
+    public Vector2 deathPos = Vector2.zero;
     private float generalSpeed;
     private bool isStarting;
     public bool goingUp;
@@ -23,14 +24,30 @@ public class generalenemyship : MonoBehaviour
         
         general = this.GetComponent<Rigidbody2D>();
         isStarting = true;
-        generalDirection.x += 3;
+        generalDirection.x -= 10;
         generalSpeed = 1;
     }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if(col.gameObject.name == "Ship") //colocar aqui o nome do missil
+            //stats.SmallEnemyDead(this.gameObject);
+            {
+                deathPos = this.general.position; //salva o lugar onde o inimigo morreu
+                this.gameObject.SetActive(false); //desliga o objeto
+                stats.AnimacaoDeMorte(deathPos); //criar corotina, chamar a animação de morte e esperar x segundos até desligar o objeto
+                
+            }
+            
+    }
+
+    
 
     // Update is called once per frame
     void Update()
     {
         generalDirection.y = nullExempleDirection.y;
+        
         if(isStarting) //aqui vai ser pra quando ele entrar na tela, ainda tem que ver
         {
             isStarting = false;
