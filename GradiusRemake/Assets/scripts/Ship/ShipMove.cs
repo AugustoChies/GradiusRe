@@ -43,6 +43,7 @@ public class ShipMove : MonoBehaviour
         controller.optionAction += SpawnOption;
         controller.shieldAction += ActivateShield;
         hd.hitByEnemy += GetHit;
+        hd.hitGround += Die;
         pastPositions.Add(rb.position);//add position 0
     }
 
@@ -143,9 +144,14 @@ public class ShipMove : MonoBehaviour
         }
         else
         {
-            //die
-            Debug.Log("I am die. Thank you forever.");
+            Die();
         }
+    }
+
+    public void Die()
+    {
+        //die
+        Debug.Log("I am die. Thank you forever.");
     }
 
 }

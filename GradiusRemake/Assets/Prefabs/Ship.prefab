@@ -291,7 +291,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8, y: 0.2}
+  m_Size: {x: 0.8, y: 0.3}
   m_EdgeRadius: 0
 --- !u!50 &4449531843520059174
 Rigidbody2D:
@@ -455,6 +455,8 @@ MonoBehaviour:
   activeUpShots: []
   inactiveLaserShots: []
   activeLaserShots: []
+  activeMisShots: []
+  inactiveMisShots: []
   controls: {fileID: 11400000, guid: e716421d3c73acf4d89c974a8eaf7870, type: 2}
   holdFireTime: 0.5
   regularshot: {fileID: 8263716229099083338, guid: 6fb3e13be6199204d94a4ba94153c27c,
@@ -462,5 +464,6 @@ MonoBehaviour:
   upwardShot: {fileID: 8263716229099083338, guid: b7fde63d3ca4bee4a9c6c142a113786b,
     type: 3}
   laser: {fileID: 8263716229099083338, guid: 3527caa94f4e9cb49b66799f3b114937, type: 3}
+  missile: {fileID: 8263716229099083338, guid: d2744d0831d03024ca5094e2929cb02f, type: 3}
   fireOriginPos: {fileID: 1630501754136392091}
   controller: {fileID: 0}

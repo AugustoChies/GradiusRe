@@ -6,12 +6,12 @@ using System;
 public class ShipShooting : MonoBehaviour
 {
     public List<Shot> inactiveRegShots, activeRegShots, inactiveUpShots, activeUpShots,
-       inactiveLaserShots, activeLaserShots;
+       inactiveLaserShots, activeLaserShots, activeMisShots, inactiveMisShots;
     public ControlsObj controls;
     protected float continuousShotDelay;//Holding fire button causes slower continuous shooting
     public float holdFireTime;
 
-    public GameObject regularshot, upwardShot, laser;
+    public GameObject regularshot, upwardShot, laser, missile;
     protected Vector3 stashPos = new Vector3(0, 100, 0);
     public Transform fireOriginPos;
     public UpgradeController controller;
@@ -25,6 +25,8 @@ public class ShipShooting : MonoBehaviour
         inactiveUpShots = new List<Shot>();
         activeLaserShots = new List<Shot>();
         inactiveLaserShots = new List<Shot>();
+        activeMisShots = new List<Shot>();
+        inactiveMisShots = new List<Shot>();
         for (int i = 0; i < 6; i++)
         {
             GameObject token;
@@ -47,6 +49,15 @@ public class ShipShooting : MonoBehaviour
             token.GetComponent<Shot>().stashList = inactiveUpShots;
             token.GetComponent<Shot>().stashPos = stashPos;
             inactiveUpShots.Add(token.GetComponent<Shot>());
+        }
+        //Missiles
+        for (int i = 0; i < 3; i++)
+        {
+            GameObject token;
+            token = Instantiate(missile, stashPos, Quaternion.identity);
+            token.GetComponent<Shot>().stashList = inactiveMisShots;
+            token.GetComponent<Shot>().stashPos = stashPos;
+            inactiveMisShots.Add(token.GetComponent<Shot>());
         }
 
         controller = GameObject.Find("Canvas").GetComponent<UpgradeController>();
@@ -100,6 +111,15 @@ public class ShipShooting : MonoBehaviour
             {
                 inactiveRegShots[0].Activate(fireOriginPos.position, activeRegShots);                
             }           
+        }
+        //Missile
+        if(controller.missile)
+        {
+            maxactive = 1;
+            if (activeMisShots.Count < maxactive && inactiveMisShots.Count > 0)
+            {
+                inactiveMisShots[0].Activate(fireOriginPos.position, activeMisShots);
+            }
         }
         
     }
