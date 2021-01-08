@@ -22,6 +22,7 @@ public class ShipMove : MonoBehaviour
     public int shieldMaxHp;
     protected int shieldHP;
 
+    public bool isDed;
 
     public int pastPositionsSizeLimit;
     public int optionMovementStartDelay;
@@ -52,29 +53,38 @@ public class ShipMove : MonoBehaviour
         hd.hitByEnemy += GetHit;
         hd.hitGround += Die;
         pastPositions.Add(rb.position);//add position 0
+        isDed = false;
     }
+
+    
 
     // Update is called once per frame
     void Update()
     {
-
+    
+        
         Vector2 temp_direction = Vector2.zero;
         if (Input.GetKey(controls.up))
         {
+            if(!isDed)
             temp_direction.y += 1;
         }
         if (Input.GetKey(controls.down))
         {
+            if(!isDed)
             temp_direction.y -= 1;
         }
         if (Input.GetKey(controls.left))
         {
+            if(!isDed)
             temp_direction.x -= 1;
         }
         if (Input.GetKey(controls.right))
         {
+            if(!isDed)
             temp_direction.x += 1;
         }
+        
 
         direction = temp_direction;
 
@@ -83,6 +93,7 @@ public class ShipMove : MonoBehaviour
         {
             controller.NextCurrent();
         }       
+        
     }
 
     private void FixedUpdate()
@@ -160,7 +171,17 @@ public class ShipMove : MonoBehaviour
     public void Die()
     {
         //die
-        Debug.Log("I am die. Thank you forever.");
+        //Debug.Log("I am die. Thank you forever.");
+        spriteAnim.SetBool("IsDed", true);
+        isDed = true;
+        StartCoroutine(DedNow());
+        
+    }
+
+    IEnumerator DedNow()
+    {
+        yield return new WaitForSeconds(0.7f);
+        this.gameObject.SetActive(false); //desliga o objeto
     }
 
 }
