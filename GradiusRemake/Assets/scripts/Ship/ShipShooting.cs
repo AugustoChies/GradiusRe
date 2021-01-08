@@ -16,6 +16,7 @@ public class ShipShooting : MonoBehaviour
     public Transform fireOriginPos;
     public UpgradeController controller;
 
+    public List<GameObject> optionsRef;
     // Start is called before the first frame update
     void Awake()
     {
@@ -82,7 +83,7 @@ public class ShipShooting : MonoBehaviour
         if (continuousShotDelay >= holdFireTime)
         {
             continuousShotDelay = 0;
-            Shoot();
+            Shoot();            
         }
     }
 
@@ -121,6 +122,10 @@ public class ShipShooting : MonoBehaviour
                 inactiveMisShots[0].Activate(fireOriginPos.position, activeMisShots);
             }
         }
-        
+        //Options
+        for (int i = 0; i < optionsRef.Count; i++)
+        {
+            optionsRef[i].GetComponent<OptionBehavoir>().Shoot(controller._double, controller.laser, controller.missile);
+        }
     }
 }

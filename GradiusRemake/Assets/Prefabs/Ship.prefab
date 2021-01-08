@@ -427,6 +427,7 @@ MonoBehaviour:
   stats: {fileID: 11400000, guid: cb31a4a88c4efcb4282a10152180d085, type: 2}
   controls: {fileID: 11400000, guid: e716421d3c73acf4d89c974a8eaf7870, type: 2}
   controller: {fileID: 0}
+  shootingScript: {fileID: 0}
   speed: 3
   spriteAnim: {fileID: 7524132902139981617}
   shieldAnim: {fileID: 4867958625283726472}
@@ -434,7 +435,7 @@ MonoBehaviour:
   hd: {fileID: 6841307793806791561}
   shieldMaxHp: 5
   pastPositionsSizeLimit: 50
-  optionMovementStartDelay: 15
+  optionMovementStartDelay: 12
   optionPrefab: {fileID: 2723875739426748242, guid: 7e69fe19a8b55204baf1c557aa06f9d1,
     type: 3}
 --- !u!114 &9077790484359150964
@@ -467,3 +468,4 @@ MonoBehaviour:
   missile: {fileID: 8263716229099083338, guid: d2744d0831d03024ca5094e2929cb02f, type: 3}
   fireOriginPos: {fileID: 1630501754136392091}
   controller: {fileID: 0}
+  optionsRef: []

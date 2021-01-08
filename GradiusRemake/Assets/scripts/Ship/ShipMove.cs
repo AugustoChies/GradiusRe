@@ -9,6 +9,7 @@ public class ShipMove : MonoBehaviour
     public ControlsObj controls;
     public Vector2 direction { get; private set; }
     public UpgradeController controller;
+    public ShipShooting shootingScript;
     [SerializeField]
     private float speed;
 
@@ -40,6 +41,12 @@ public class ShipMove : MonoBehaviour
         {
             throw new Exception("UpgradeController Object not Found");
         }
+        shootingScript = this.GetComponent<ShipShooting>();
+        if (shootingScript == null)
+        {
+            throw new Exception("ShipShooting not Found");
+        }
+        shootingScript.optionsRef = options;
         controller.optionAction += SpawnOption;
         controller.shieldAction += ActivateShield;
         hd.hitByEnemy += GetHit;
@@ -110,6 +117,8 @@ public class ShipMove : MonoBehaviour
         }
         token.GetComponent<OptionBehavoir>().moveDelay = optionMovementStartDelay * (options.Count + 1);
         token.GetComponent<OptionBehavoir>().pastPositions = pastPositions;
+        token.GetComponent<OptionBehavoir>().AssignInactiveLists(shootingScript.inactiveRegShots,shootingScript.inactiveUpShots,
+            shootingScript.inactiveLaserShots, shootingScript.inactiveMisShots);
         options.Add(token);        
     }
 
