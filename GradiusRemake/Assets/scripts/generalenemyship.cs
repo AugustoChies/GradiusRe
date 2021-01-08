@@ -29,10 +29,12 @@ public class generalenemyship : MonoBehaviour
         generalSpeed = 1;
     }
 
-    void OnCollisionEnter2D(Collision2D col)
+    void OnTriggerEnter2D(Collider2D col)
     {
         //if(col.gameObject.name == "Ship") //colocar aqui o nome do missil
+            if(col.CompareTag("Bullet"))
             {
+                
                 spriteAnim.SetBool("IsDed", true);
                 ded = true;
                 //colocar aqui algo q aumente a pontuação.............................................................................................................

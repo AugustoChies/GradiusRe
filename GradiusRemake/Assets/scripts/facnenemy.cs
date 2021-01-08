@@ -23,11 +23,11 @@ public class facnenemy : MonoBehaviour
     }
 
 
-    void OnCollisionEnter2D(Collision2D col)
+    void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log("fasfaf");
         
-        //if(col.gameObject.name == "Ship") //colocar aqui o nome do missil
+        
+        if(col.CompareTag("Bullet"))
             {
                 spriteAnim.SetBool("IsDed", true);
                 isItDed = true;
