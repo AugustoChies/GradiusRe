@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: e791d9c44cf3b3a4aa1542b0a43d7369
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - stats: {fileID: 11400000, guid: cb31a4a88c4efcb4282a10152180d085, type: 2}
+  - PUPrefab: {instanceID: 0}
+  - spriteAnim: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

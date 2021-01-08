@@ -5,7 +5,7 @@ using UnityEngine;
 public class HitDetection : MonoBehaviour
 {
     public delegate void GotHit();
-    public GotHit hitByEnemy, hitGround;
+    public GotHit hitByEnemy, hitGround, gotPowerUp;
     public Rigidbody2D parentPosition;
     protected Rigidbody2D rb;
 
@@ -25,7 +25,12 @@ public class HitDetection : MonoBehaviour
         {
             hitByEnemy();
         }
-        if (collision.gameObject.layer == 10)
+        else if(collision.CompareTag("Power"))
+        {
+            gotPowerUp();
+            Destroy(collision.gameObject);
+        }
+        else if (collision.gameObject.layer == 10)
         {
             hitGround();
         }

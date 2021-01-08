@@ -65,7 +65,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -94,13 +94,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: cb31a4a88c4efcb4282a10152180d085, type: 2}
+  PUPrefab: {fileID: 8063585679436087660, guid: 716458aba186f824497959afbfcaa6ed,
+    type: 3}
+  dropsPowerUp: 1
+  spriteAnim: {fileID: 3707137170147401905}
+  isItDed: 0
   generalDirection: {x: 0, y: 0}
   nullExempleDirection: {x: 0, y: 0}
   deathPos: {x: 0, y: 0}
   goingUp: 0
   goingDown: 0
-  ded: 0
-  spriteAnim: {fileID: 3707137170147401905}
+  Isded: 0
 --- !u!1 &3707137170147401870
 GameObject:
   m_ObjectHideFlags: 0

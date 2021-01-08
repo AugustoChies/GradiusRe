@@ -52,6 +52,7 @@ public class ShipMove : MonoBehaviour
         controller.shieldAction += ActivateShield;
         hd.hitByEnemy += GetHit;
         hd.hitGround += Die;
+        hd.gotPowerUp += GetPowerUp;
         pastPositions.Add(rb.position);//add position 0
         isDed = false;
     }
@@ -148,6 +149,11 @@ public class ShipMove : MonoBehaviour
         controller.DisableShieldIcon();
     }
 
+    public void GetPowerUp()
+    {
+        controller.NextCurrent();
+    }
+
     public void GetHit()
     {
         if(shieldHP > 0)
@@ -174,8 +180,7 @@ public class ShipMove : MonoBehaviour
         //Debug.Log("I am die. Thank you forever.");
         spriteAnim.SetBool("IsDed", true);
         isDed = true;
-        StartCoroutine(DedNow());
-        
+        StartCoroutine(DedNow());        
     }
 
     IEnumerator DedNow()

@@ -53,5 +53,9 @@ public abstract class Shot : MonoBehaviour
         {
             Deactivate();
         }
+        else if(collision.CompareTag("Enemy"))
+        {
+            Deactivate();
+        }
     }
 }
