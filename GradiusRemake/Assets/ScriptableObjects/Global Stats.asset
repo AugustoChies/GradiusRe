@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a564d41f4a2d9440997067d935a7972, type: 3}
   m_Name: Global Stats
   m_EditorClassIdentifier: 
-  scrollSpeed: 4
+  dead: 0
+  scrollSpeed: 2
   playerLifes: 3
-  playerPosition: {x: -2.6, y: -0.44423628}
+  playerPosition: {x: -1.4642671, y: -1.9484988}
