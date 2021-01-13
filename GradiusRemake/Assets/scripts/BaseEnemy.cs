@@ -11,7 +11,7 @@ public class BaseEnemy : MonoBehaviour
     protected Rigidbody2D rb;
     public Animator spriteAnim;
     public bool isItDed;
-
+    
 
 
     public void Die()
