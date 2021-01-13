@@ -6,8 +6,7 @@ public class generalenemyship : BaseEnemy
 {
     public Vector2 generalDirection = Vector2.zero;
     public Vector2 nullExempleDirection = Vector2.zero;
-    public Vector2 deathPos = Vector2.zero;
-    private float generalSpeed;
+    public float generalSpeed;
     private bool isStarting;
     public bool goingUp;
     public bool goingDown;
@@ -32,7 +31,7 @@ public class generalenemyship : BaseEnemy
     void Update()
     {
         generalDirection.y = nullExempleDirection.y;
-
+        generalSpeed = 1;
 
         if(!Isded)
         {
@@ -53,6 +52,7 @@ public class generalenemyship : BaseEnemy
                 spriteAnim.SetBool("Down", goingDown);
             }else
             {
+                generalSpeed += 1;
                 goingDown = false;
                 goingUp = false;
                 spriteAnim.SetBool("Down", goingDown);
