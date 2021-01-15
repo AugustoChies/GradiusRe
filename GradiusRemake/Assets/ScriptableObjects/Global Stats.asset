@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Global Stats
   m_EditorClassIdentifier: 
   dead: 0
-  scrollSpeed: 2
+  scrollSpeed: 1
   playerLifes: 3
-  playerPosition: {x: -1.4642671, y: -1.9484988}
+  playerPosition: {x: -3.1999993, y: -0.68423617}
