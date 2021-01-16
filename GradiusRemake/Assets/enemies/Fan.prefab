@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -3829076434430995284}
   - component: {fileID: 6412472086445797380}
   m_Layer: 0
-  m_Name: onefan
+  m_Name: Fan
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -94,12 +94,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 904c1a4db44a33940a378645ed452bf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  life: 1
+  baseSpeed: 15
   stats: {fileID: 11400000, guid: cb31a4a88c4efcb4282a10152180d085, type: 2}
   PUPrefab: {fileID: 8063585679436087660, guid: 716458aba186f824497959afbfcaa6ed,
     type: 3}
   dropsPowerUp: 0
   spriteAnim: {fileID: 6412472086445797380}
   isItDed: 0
+  creator: {fileID: 0}
   fanDirection: {x: 0, y: 0}
 --- !u!212 &-3829076434430995284
 SpriteRenderer:

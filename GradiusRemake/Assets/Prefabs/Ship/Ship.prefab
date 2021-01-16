@@ -248,7 +248,7 @@ GameObject:
   - component: {fileID: 6841307793806791561}
   m_Layer: 0
   m_Name: Hitbox
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -434,6 +434,7 @@ MonoBehaviour:
   shieldSprite: {fileID: 9050783136408314767}
   hd: {fileID: 6841307793806791561}
   shieldMaxHp: 5
+  isDed: 0
   pastPositionsSizeLimit: 50
   optionMovementStartDelay: 12
   optionPrefab: {fileID: 2723875739426748242, guid: 7e69fe19a8b55204baf1c557aa06f9d1,

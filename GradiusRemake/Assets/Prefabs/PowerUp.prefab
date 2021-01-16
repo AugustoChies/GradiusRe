@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8063585679436087662}
   - component: {fileID: 8063585679436087663}
   - component: {fileID: 1404797604515005016}
+  - component: {fileID: 1826231528637773641}
   m_Layer: 0
   m_Name: PowerUp
   m_TagString: Power
@@ -129,3 +130,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1826231528637773641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8063585679436087660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f061358ab6200834bb3d8bc7a1c3da6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 11400000, guid: cb31a4a88c4efcb4282a10152180d085, type: 2}

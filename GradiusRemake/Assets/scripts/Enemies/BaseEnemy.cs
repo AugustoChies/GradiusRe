@@ -5,6 +5,8 @@ using UnityEngine;
 //Base Enemy class, future parent of all enemies, not fully integrated yet
 public class BaseEnemy : MonoBehaviour
 {
+    public int life;
+    public float baseSpeed;
     public GlobalStats stats;
     public GameObject PUPrefab;
     public bool dropsPowerUp;
@@ -16,6 +18,7 @@ public class BaseEnemy : MonoBehaviour
 
     public void Die()
     {
+        this.GetComponent<Collider2D>().enabled = false;
         spriteAnim.SetBool("IsDed", true);
         isItDed = true;        
         //colocar aqui algo q aumente a pontuação.............................................................................................................
@@ -24,9 +27,15 @@ public class BaseEnemy : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.CompareTag("Bullet"))
+        if(col.gameObject.layer == 8)//camborder
         {
-            Die();
+            Destroy(this.gameObject);
+        }
+        if (col.CompareTag("Bullet") || col.CompareTag("Player"))
+        {
+            life--;
+            if(life <= 0)
+                Die();
         }
     }
 
@@ -38,6 +47,6 @@ public class BaseEnemy : MonoBehaviour
         {
             Instantiate(PUPrefab, this.transform.position, Quaternion.identity);
         }
-        this.gameObject.SetActive(false); //desliga o objeto
+        Destroy(this.gameObject);
     }
 }
