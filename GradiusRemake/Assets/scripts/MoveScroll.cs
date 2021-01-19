@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class MoveScroll : MonoBehaviour
 {
-    public GlobalStats stats; 
+    public GlobalStats stats;
+    public Vector2 scrollDirection = new Vector2(-1,0);
 
    
     void Update()
     {
-        transform.Translate(Vector2.left * stats.scrollSpeed * Time.deltaTime);
+        transform.Translate(scrollDirection * stats.scrollSpeed * Time.deltaTime);
     }
 }

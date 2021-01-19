@@ -94,8 +94,8 @@ public class WalkingCannon : BaseEnemy
 
         if (walkNow)
             generalDirection.x += 7;
-        if (stopNow)
-            generalDirection.x -= 2;//ver se não é redundante
+        else if (stopNow)
+            generalDirection.x -= stats.scrollSpeed;
 
         rb.MovePosition(this.rb.position + generalDirection * Time.deltaTime);
     }
