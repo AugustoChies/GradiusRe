@@ -11,6 +11,7 @@ public class generalenemyship : BaseEnemy
     public bool goingUp;
     public bool goingDown;
     public bool Isded = false;
+    public Vector2 scrollDirection = new Vector2(-1,0);
     
     
     
@@ -21,7 +22,7 @@ public class generalenemyship : BaseEnemy
     {        
         rb = this.GetComponent<Rigidbody2D>();
         isStarting = true;
-        generalDirection.x -= 10;
+        generalDirection.x -= 3;
         generalSpeed = 1;
     }   
 
@@ -59,8 +60,10 @@ public class generalenemyship : BaseEnemy
                 spriteAnim.SetBool("Up", goingUp);
             }        
             
-            rb.MovePosition(this.rb.position + generalDirection * generalSpeed * Time.deltaTime);
+            transform.position = this.rb.position + generalDirection * generalSpeed * Time.deltaTime;
         }
+        else
+            transform.position = this.rb.position + scrollDirection * stats.scrollSpeed * Time.deltaTime;
     }
 }
 
