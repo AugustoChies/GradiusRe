@@ -14,6 +14,7 @@ public class CannonFixed : BaseEnemy
     public float yDistanceToShipShoot;
     public float diagonal;
     public GameObject CannonTiro;
+    public Vector2 scrollDirection = new Vector2(-1,0);
     
     // Start is called before the first frame update
     void Start()
@@ -63,6 +64,7 @@ public class CannonFixed : BaseEnemy
             spriteAnim.SetBool("IsHi", false);
         }
 
+        transform.position = this.rb.position + scrollDirection * stats.scrollSpeed * Time.deltaTime;
     }
 
 

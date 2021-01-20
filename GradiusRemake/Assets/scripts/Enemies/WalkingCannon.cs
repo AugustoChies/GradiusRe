@@ -14,7 +14,7 @@ public class WalkingCannon : BaseEnemy
     public GameObject CannonTiro;
     public float xDistanceToShip;
     public float yDistanceToShip;
-
+    public Vector2 scrollDirection = new Vector2(-1,0);
 
     // Start is called before the first frame update
     void Start()
@@ -37,7 +37,7 @@ public class WalkingCannon : BaseEnemy
     {
         walkNow = true;
         spriteAnim.SetBool("IsWalking", true);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.5f);
         if (farEnough)
         {
             walkNow = false;
@@ -46,14 +46,14 @@ public class WalkingCannon : BaseEnemy
         }
             
         else
-            StartCoroutine(WalkingNow());
+            StartCoroutine(WalkingNow()); 
     }
 
     IEnumerator AimingNow()
     {
         stopNow = true;
         spriteAnim.SetBool("StopedWalking", true);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.5f);
         ShootTheShip();
         yield return new WaitForSeconds(0.5f);
         if (farEnough)
@@ -79,6 +79,8 @@ public class WalkingCannon : BaseEnemy
     // Update is called once per frame
     void Update()
     {
+        if(!isItDed)
+        {
         generalDirection.x = nullExempleDirection.x;
         xDistanceToShip = stats.playerPosition.x - this.rb.position.x;
         yDistanceToShip = stats.playerPosition.y - this.rb.position.y;
@@ -93,10 +95,14 @@ public class WalkingCannon : BaseEnemy
         
 
         if (walkNow)
-            generalDirection.x += 7;
+            generalDirection.x = 6;
         else if (stopNow)
-            generalDirection.x -= stats.scrollSpeed;
+            generalDirection.x = -stats.scrollSpeed;
 
-        rb.MovePosition(this.rb.position + generalDirection * Time.deltaTime);
+        transform.position = this.rb.position + generalDirection * Time.deltaTime; 
+        }
+        else
+            transform.position = this.rb.position + scrollDirection * stats.scrollSpeed * Time.deltaTime;
+        
     }
 }

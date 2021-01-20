@@ -10,6 +10,7 @@ public class MoveScroll : MonoBehaviour
    
     void Update()
     {
+        
         transform.Translate(scrollDirection * stats.scrollSpeed * Time.deltaTime);
     }
 }
