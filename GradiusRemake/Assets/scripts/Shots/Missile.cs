@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Missile : Shot
 {    
-    protected bool contact;
+    protected int contacts;
     [SerializeField]
     protected Vector2 groundDirection,airDirection;
     public Animator anim;
@@ -23,21 +23,15 @@ public class Missile : Shot
         }
         else if (collision.gameObject.layer == 10) //ground
         {
-            if (rb.position.y > collision.gameObject.transform.position.y)
-            {
-                anim.SetBool("Floor", true);
-                contact = true;
-            }
-            else
-            {
-                Deactivate();
-            }
+            anim.SetBool("Floor", true);
+            contacts += 1;
+            Debug.Log(1);            
         }        
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if(contact)
+        if(contacts > 0)
         {
             if(collision.CompareTag("Ground"))
             {
@@ -48,12 +42,15 @@ public class Missile : Shot
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (contact)
+        if (contacts > 0)
         {
             if (collision.CompareTag("Ground"))
+            {                
+                contacts -= 1;
+                Debug.Log(-1);
+            }
+            if (contacts == 0)
             {
-                direction = airDirection;
-                contact = false;
                 anim.SetBool("Floor", false);
                 direction = airDirection;
             }

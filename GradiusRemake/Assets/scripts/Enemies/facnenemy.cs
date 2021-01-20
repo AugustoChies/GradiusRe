@@ -5,7 +5,8 @@ using UnityEngine;
 public class facnenemy : BaseEnemy
 {
     public FanMaster creator;
-    public Vector2 fanDirection = Vector2.zero;    
+    public Vector2 fanDirection = Vector2.zero;
+    public Vector2 scrollDirection;
     private bool isStarting;
     private Rigidbody2D fan;
 
@@ -56,10 +57,9 @@ public class facnenemy : BaseEnemy
             }
             fan.MovePosition(this.fan.position + fanDirection.normalized * baseSpeed * Time.deltaTime);
         }
-        else//explosion moves along with scrolling scenery
+        else//explosion moves along scrolling scenery
         {
-            Debug.Log("hey");
-            fan.MovePosition(this.fan.position + Vector2.left * stats.scrollSpeed * Time.deltaTime);
+            transform.position = this.fan.position + scrollDirection * stats.scrollSpeed * Time.deltaTime;
         }
     }
 }

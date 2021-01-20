@@ -104,6 +104,7 @@ MonoBehaviour:
   isItDed: 0
   creator: {fileID: 0}
   fanDirection: {x: 0, y: 0}
+  scrollDirection: {x: -1, y: 0}
 --- !u!212 &-3829076434430995284
 SpriteRenderer:
   m_ObjectHideFlags: 0
