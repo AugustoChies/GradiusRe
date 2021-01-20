@@ -9,6 +9,7 @@ TagManager:
   - EnemyBullet
   - Ground
   - Power
+  - Climbable
   layers:
   - Default
   - TransparentFX

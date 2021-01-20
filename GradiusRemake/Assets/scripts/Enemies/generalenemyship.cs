@@ -10,7 +10,6 @@ public class generalenemyship : BaseEnemy
     private bool isStarting;
     public bool goingUp;
     public bool goingDown;
-    public bool Isded = false;
     public Vector2 scrollDirection = new Vector2(-1,0);
     
     
@@ -34,36 +33,40 @@ public class generalenemyship : BaseEnemy
         generalDirection.y = nullExempleDirection.y;
         generalSpeed = 1;
 
-        if(!Isded)
+        if (!isItDed)
         {
-            if(isStarting) //aqui vai ser pra quando ele entrar na tela, ainda tem que ver
+            if (isStarting) //aqui vai ser pra quando ele entrar na tela, ainda tem que ver
             {
                 isStarting = false;
             }
-            if((stats.playerPosition.y - 0.1) > this.rb.position.y)
+            if ((stats.playerPosition.y - 0.1) > this.rb.position.y)
             {
                 generalDirection.y += 5;//ver aqui valor de velocidade quanto sobe ou desce
                 goingUp = true;
                 spriteAnim.SetBool("Up", goingUp);
-            }else
-            if((stats.playerPosition.y + 0.1) < this.rb.position.y)
+            }
+            else
+            if ((stats.playerPosition.y + 0.1) < this.rb.position.y)
             {
                 generalDirection.y -= 5;//ver aqui valor
                 goingDown = true;
                 spriteAnim.SetBool("Down", goingDown);
-            }else
+            }
+            else
             {
                 generalSpeed += 1;
                 goingDown = false;
                 goingUp = false;
                 spriteAnim.SetBool("Down", goingDown);
                 spriteAnim.SetBool("Up", goingUp);
-            }        
-            
+            }
+
             transform.position = this.rb.position + generalDirection * generalSpeed * Time.deltaTime;
         }
         else
+        {
             transform.position = this.rb.position + scrollDirection * stats.scrollSpeed * Time.deltaTime;
+        }
     }
 }
 

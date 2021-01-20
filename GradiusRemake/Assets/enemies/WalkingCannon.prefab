@@ -123,7 +123,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 546315585458229031, guid: 475a02a193e43d34fa14cbbde5fe9af1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.13, y: 0.14}
@@ -179,3 +179,4 @@ MonoBehaviour:
     type: 3}
   xDistanceToShip: 0
   yDistanceToShip: 0
+  scrollDirection: {x: -1, y: 0}
