@@ -7,7 +7,7 @@ public class facnenemy : BaseEnemy
     public FanMaster creator;
     public Vector2 fanDirection = Vector2.zero;
     public Vector2 scrollDirection;
-    private bool isStarting;
+    public bool goingUp;
     private Rigidbody2D fan;
 
     // Start is called before the first frame update
@@ -15,11 +15,17 @@ public class facnenemy : BaseEnemy
     {
         isItDed = false; 
         fan = this.GetComponent<Rigidbody2D>();
-        isStarting = true;
-        fanDirection.x -= 10;
+        goingUp = false;
     }    
    
+    void Awake()
+    {
+        fanDirection.x = -4;
+        StartCoroutine(IsGoingLeft());
+        
+    }
 
+/*
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.layer == 8)//camborder
@@ -42,19 +48,30 @@ public class facnenemy : BaseEnemy
             }
         }
     }
-
-
+*/
+    IEnumerator IsGoingLeft()
+    {
+        yield return new WaitForSeconds(1.5f);
+        fanDirection.x = 2;
+        if(this.fan.position.y < stats.playerPosition.y)
+            fanDirection.y = 2;
+        else
+            fanDirection.y = -2;
+        goingUp = true;
+    }
 
     // Update is called once per frame
     void Update()
     {
+        if(goingUp)
+            if(((this.fan.position.y - 0.3f) < stats.playerPosition.y) && ((this.fan.position.y + 0.3f) > stats.playerPosition.y))
+            {
+                goingUp = false;
+                fanDirection.y = 0;
+                fanDirection.x = 4;
+            }
         if(!isItDed)
         {
-            if(isStarting)
-            {
-                //this.fan.position = {30,15};
-                isStarting = false;
-            }
             fan.MovePosition(this.fan.position + fanDirection.normalized * baseSpeed * Time.deltaTime);
         }
         else//explosion moves along scrolling scenery
