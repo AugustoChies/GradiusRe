@@ -10,11 +10,13 @@ public class FanMaster : MonoBehaviour
     protected int currentSpawnAmount;
     public int killedByPlayer;
     public float spawnTime;
+    public float firstPlayerY;
 
     
 
     private void Start()
     {
+        firstPlayerY = -1000;
         fans = new List<GameObject>();
         currentSpawnAmount = spawnAmount;
         StartCoroutine(SpawnRoutine());
@@ -25,6 +27,14 @@ public class FanMaster : MonoBehaviour
         if(fans.Count == 0 && currentSpawnAmount == 0)
         {
             Destroy(this.gameObject);
+        }
+    }
+
+    public void SetDirection(float currentPY)
+    {
+        if(firstPlayerY == -1000)
+        {
+            firstPlayerY = currentPY;
         }
     }
 

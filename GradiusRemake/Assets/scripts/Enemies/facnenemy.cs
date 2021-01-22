@@ -20,12 +20,10 @@ public class facnenemy : BaseEnemy
    
     void Awake()
     {
-        fanDirection.x = -4;
-        StartCoroutine(IsGoingLeft());
-        
+        fanDirection.x = -4;        
     }
 
-/*
+
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.layer == 8)//camborder
@@ -47,24 +45,27 @@ public class facnenemy : BaseEnemy
                 Die();
             }
         }
+        if (col.CompareTag("AITrigger"))
+        {
+            fanDirection.x = 2;
+            creator.SetDirection(stats.playerPosition.y);
+            if (this.fan.position.y < creator.firstPlayerY)
+                fanDirection.y = 2;
+            else
+                fanDirection.y = -2;
+            goingUp = true;
+        }
     }
-*/
-    IEnumerator IsGoingLeft()
-    {
-        yield return new WaitForSeconds(1.5f);
-        fanDirection.x = 2;
-        if(this.fan.position.y < stats.playerPosition.y)
-            fanDirection.y = 2;
-        else
-            fanDirection.y = -2;
-        goingUp = true;
-    }
+
+    
+      
+   
 
     // Update is called once per frame
     void Update()
     {
         if(goingUp)
-            if(((this.fan.position.y - 0.3f) < stats.playerPosition.y) && ((this.fan.position.y + 0.3f) > stats.playerPosition.y))
+            if(((this.fan.position.y - 0.3f) < creator.firstPlayerY) && ((this.fan.position.y + 0.3f) > creator.firstPlayerY))
             {
                 goingUp = false;
                 fanDirection.y = 0;

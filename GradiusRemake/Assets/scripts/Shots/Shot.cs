@@ -20,8 +20,7 @@ public abstract class Shot : MonoBehaviour
         isActive = false;
         rb = this.GetComponent<Rigidbody2D>();
     }
-
-
+   
     protected void FixedUpdate()
     {
         if(isActive)
