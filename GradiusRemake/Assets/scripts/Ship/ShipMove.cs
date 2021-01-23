@@ -32,6 +32,7 @@ public class ShipMove : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        stats.scrollSpeed = 1;
         pastPositions = new List<Vector2>();        
         options = new List<GameObject>();
         rb = this.GetComponent<Rigidbody2D>();
