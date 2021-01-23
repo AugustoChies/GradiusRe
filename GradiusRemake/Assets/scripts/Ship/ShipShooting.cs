@@ -36,6 +36,7 @@ public class ShipShooting : MonoBehaviour
             token.GetComponent<Shot>().stashList = inactiveRegShots;
             token.GetComponent<Shot>().stashPos = stashPos;
             inactiveRegShots.Add(token.GetComponent<Shot>());
+            token.name += " "+i;
             //lasers
             token = Instantiate(laser, stashPos, Quaternion.identity);
             token.GetComponent<Shot>().stashList = inactiveLaserShots;

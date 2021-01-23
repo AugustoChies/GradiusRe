@@ -31,6 +31,7 @@ public abstract class Shot : MonoBehaviour
 
     public void Activate(Vector3 newPosition,List<Shot> newActiveList)
     {
+        if (isActive) return;
         activeList = newActiveList;
         isActive = true;
         rb.position = newPosition;
@@ -40,11 +41,13 @@ public abstract class Shot : MonoBehaviour
 
     public void Deactivate()
     {
+        if (!isActive) return;
         isActive = false;
         rb.position = stashPos;
         activeList.Remove(this);
         stashList.Add(this);
     }
+    
 
     protected void OnTriggerEnter2D(Collider2D collision)
     {
