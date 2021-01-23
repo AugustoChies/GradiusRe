@@ -35,7 +35,8 @@ public class FatherEnemy : BaseEnemy
         {
             howMany++;
             waiting++;
-            CreateSon();
+            CreatingSon();
+            StartCoroutine(CreateSon());
         }
         else
         {
@@ -59,9 +60,7 @@ public class FatherEnemy : BaseEnemy
 
     private void CreatingSon()
     {
-        GameObject token;
-        
-        token = Instantiate(Son, this.rb.position, Quaternion.identity);
+       Instantiate(Son, this.rb.position, Quaternion.identity);
     }
 
 }

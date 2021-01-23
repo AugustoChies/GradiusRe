@@ -25,10 +25,11 @@ public class SonEnemy : BaseEnemy
     {
         hasntShot = true;
         hasReached = false;
-        if(stats.playerPosition.y > this.rb.position.y)
-            generalDirection.y = 2;
-        else
-            generalDirection.y =-2;
+
+      // if(stats.playerPosition.y > this.rb.position.y)
+      //     generalDirection.y = 2;
+      // else
+      //     generalDirection.y =-2;
         
     }
 
