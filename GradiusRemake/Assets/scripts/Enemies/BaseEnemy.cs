@@ -31,13 +31,19 @@ public class BaseEnemy : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-        if (col.CompareTag("Bullet") || col.CompareTag("Player"))
+        if (col.CompareTag("Bullet"))
         {
             life--;
             if(life <= 0)
                 Die();
         }
+        else if (col.CompareTag("Player"))
+        {
+            Die();
+        }
     }
+
+   
 
 
     IEnumerator DedNow()

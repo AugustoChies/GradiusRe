@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class HitDetection : MonoBehaviour
 {
-    public delegate void GotHit();
-    public GotHit hitByEnemy, hitGround, gotPowerUp;
+    public delegate void GotHit(int damage);
+    public delegate void Contact();
+    public GotHit hitByEnemy;
+    public Contact hitGround, gotPowerUp;
     public Rigidbody2D parentPosition;
     protected Rigidbody2D rb;
 
@@ -21,9 +23,13 @@ public class HitDetection : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Enemy") || collision.CompareTag("EnemyBullet"))
+        if(collision.CompareTag("EnemyBullet"))
         {
-            hitByEnemy();
+            hitByEnemy(1);
+        }
+        else if (collision.CompareTag("Enemy")) // destroy shield and enemy at fast rate when shield is active
+        {
+            hitByEnemy(collision.GetComponent<BaseEnemy>().life);
         }
         else if(collision.CompareTag("Power"))
         {
@@ -34,5 +40,5 @@ public class HitDetection : MonoBehaviour
         {
             hitGround();
         }
-    }
+    }    
 }

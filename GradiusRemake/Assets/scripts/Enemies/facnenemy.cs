@@ -31,7 +31,7 @@ public class facnenemy : BaseEnemy
             creator.fans.Remove(this.gameObject);
             Destroy(this.gameObject);
         }
-        if (col.CompareTag("Bullet") || CompareTag("Player"))
+        else if (col.CompareTag("Bullet"))
         {
             life--;
             if (life <= 0)
@@ -45,7 +45,17 @@ public class facnenemy : BaseEnemy
                 Die();
             }
         }
-        if (col.CompareTag("AITrigger"))
+        else if (col.CompareTag("Player"))
+        {
+            creator.killedByPlayer++;
+            creator.fans.Remove(this.gameObject);
+            if (creator.killedByPlayer == creator.spawnAmount)
+            {
+                dropsPowerUp = true;
+            }            
+            Die();
+        }
+        else if (col.CompareTag("AITrigger"))
         {
             fanDirection.x = 2;
             creator.SetDirection(stats.playerPosition.y);
@@ -57,9 +67,6 @@ public class facnenemy : BaseEnemy
         }
     }
 
-    
-      
-   
 
     // Update is called once per frame
     void Update()

@@ -20,7 +20,7 @@ public class ShipMove : MonoBehaviour
     public SpriteRenderer shieldSprite;
     public HitDetection hd;
     public int shieldMaxHp;
-    protected int shieldHP;
+    public int shieldHP;
 
     public bool isDed;
 
@@ -154,19 +154,19 @@ public class ShipMove : MonoBehaviour
         controller.NextCurrent();
     }
 
-    public void GetHit()
+    public void GetHit(int damage)
     {
         if(shieldHP > 0)
         {
-            shieldHP--;
-            if(shieldHP == 1)
-            {
-                shieldAnim.SetBool("Weak", true);
-            }
-            if (shieldHP == 0)
+            shieldHP-= damage;
+            if(shieldHP <= 0)
             {
                 DisableShield();
             }
+            else if(shieldHP == 1)
+            {
+                shieldAnim.SetBool("Weak", true);
+            }            
         }
         else
         {
@@ -180,6 +180,9 @@ public class ShipMove : MonoBehaviour
         //Debug.Log("I am die. Thank you forever.");
         spriteAnim.SetBool("IsDed", true);
         isDed = true;
+        this.GetComponent<Collider2D>().enabled = false;
+        shieldSprite.enabled = false;
+        shieldAnim.enabled = false;
         StartCoroutine(DedNow());        
     }
 
