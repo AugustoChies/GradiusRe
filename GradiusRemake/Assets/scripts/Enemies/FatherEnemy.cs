@@ -10,6 +10,7 @@ public class FatherEnemy : BaseEnemy
     public int waiting;
     public bool canStart = false;
     public Vector2 scrollDirection = new Vector2(-1,0);
+    public Vector2 spawnPlace = Vector2.zero;
 
 
     // Start is called before the first frame update
@@ -30,20 +31,13 @@ public class FatherEnemy : BaseEnemy
 
     IEnumerator CreateSon()
     {
-        yield return new WaitForSeconds(1f);
-        if(howMany < 4)
+        for (int i = 0; i < 4; i++)
         {
-            howMany++;
-            waiting++;
+        yield return new WaitForSeconds(0.5f);
             CreatingSon();
-            StartCoroutine(CreateSon());
         }
-        else
-        {
-            waiting--;
-            if(waiting == 0)
-                howMany = 0;
-        }
+        yield return new WaitForSeconds(2.5f);
+        StartCoroutine(CreateSon());
     }
 
     // Update is called once per frame
@@ -53,14 +47,14 @@ public class FatherEnemy : BaseEnemy
         if(life == 1 && canStart)
             spriteAnim.SetBool("LoLife", true);
 
-
-
-        transform.position = this.rb.position + scrollDirection * stats.scrollSpeed * Time.deltaTime;
+    transform.position = this.rb.position + scrollDirection * stats.scrollSpeed * Time.deltaTime;
     }
 
     private void CreatingSon()
     {
-       Instantiate(Son, this.rb.position, Quaternion.identity);
+        spawnPlace = this.rb.position;
+        spawnPlace.y += 1;
+        Instantiate(Son, spawnPlace, Quaternion.identity);
     }
 
 }

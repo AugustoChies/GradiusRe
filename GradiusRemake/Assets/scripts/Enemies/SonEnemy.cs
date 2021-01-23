@@ -18,18 +18,19 @@ public class SonEnemy : BaseEnemy
     // Start is called before the first frame update
     void Start()
     {
-        rb = this.GetComponent<Rigidbody2D>();
+       
     }
 
     void Awake()
     {
+        rb = this.GetComponent<Rigidbody2D>();
         hasntShot = true;
         hasReached = false;
 
-      // if(stats.playerPosition.y > this.rb.position.y)
-      //     generalDirection.y = 2;
-      // else
-      //     generalDirection.y =-2;
+       if(stats.playerPosition.y > this.rb.position.y)
+           generalDirection.y = 2.3f;
+       else
+           generalDirection.y =-2.3f;
         
     }
 
@@ -51,8 +52,8 @@ public class SonEnemy : BaseEnemy
             generalDirection.x = -3;
         }
 
-        if(hasntShot && hasReached)
-            if((xDistanceToShip + yDistanceToShip < 3) && (xDistanceToShip + yDistanceToShip > -3)) //se eles podem atirar antes de ficarem alinhados com o player é só tirar o hasreached daqui
+        if(hasntShot)
+            if((xDistanceToShip + yDistanceToShip < 2) && (xDistanceToShip + yDistanceToShip > -2)) //se eles podem atirar antes de ficarem alinhados com o player é só tirar o hasreached daqui
         {
             ShootTheShip();
             hasntShot = false;
