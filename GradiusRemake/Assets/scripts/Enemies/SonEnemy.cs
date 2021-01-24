@@ -15,16 +15,23 @@ public class SonEnemy : BaseEnemy
     public Vector2 scrollDirection = new Vector2(-1,0);
 
 
+
+
    
+
     void Awake()
     {
         rb = this.GetComponent<Rigidbody2D>();
         hasntShot = true;
-        hasReached = false;        
+
+        hasReached = false;
+
        if(stats.playerPosition.y > this.rb.position.y)
-           generalDirection.y = 2;
+           generalDirection.y = 2.3f;
        else
-           generalDirection.y =-2;
+           generalDirection.y =-2.3f;
+
+
         
     }
 
@@ -46,8 +53,8 @@ public class SonEnemy : BaseEnemy
             generalDirection.x = -3;
         }
 
-        if(hasntShot && hasReached)
-            if((xDistanceToShip + yDistanceToShip < 3) && (xDistanceToShip + yDistanceToShip > -3)) //se eles podem atirar antes de ficarem alinhados com o player é só tirar o hasreached daqui
+        if(hasntShot)
+            if((xDistanceToShip + yDistanceToShip < 2) && (xDistanceToShip + yDistanceToShip > -2)) //se eles podem atirar antes de ficarem alinhados com o player é só tirar o hasreached daqui
         {
             ShootTheShip();
             hasntShot = false;
