@@ -6,6 +6,7 @@ using TMPro;
 
 public class MenuCanvas : MonoBehaviour
 {
+    public GlobalStats stats;
     public ControlsObj controls;
     protected bool moving,starting;
     public float moveSpeed;
@@ -66,6 +67,7 @@ public class MenuCanvas : MonoBehaviour
         //playsound
         StartCoroutine(TextBlink());
         yield return new WaitForSeconds(startWaitTime);
+        stats.playerLifes = 3;
         SceneManager.LoadSceneAsync("Stage");
     }
 

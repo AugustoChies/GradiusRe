@@ -22,6 +22,7 @@ public class CanvasTexts : MonoBehaviour
         highscoretxt.text = zeroes + tokenscoretext;
         stats.UpdateScoreEvent += UpdateScore;
         stats.UpdateLivesEvent += UpdateLifes;
+        stats.GameOverEvent += GameOver;
     }
     
 
@@ -42,5 +43,10 @@ public class CanvasTexts : MonoBehaviour
         livestxt.text = "";
         if (stats.playerLifes > 0)
             livestxt.text += stats.playerLifes;
+    }
+
+    public void GameOver()
+    {
+        
     }
 }

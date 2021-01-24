@@ -20,10 +20,7 @@ public class FatherEnemy : BaseEnemy
 
     void Awake()
     {
-        life = 3;
-        canStart = true;
-        howMany = 0;
-        waiting = 0;
+        canStart = true;       
         StartCoroutine(CreateSon());
     }
 

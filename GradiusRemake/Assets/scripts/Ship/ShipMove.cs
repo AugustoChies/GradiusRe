@@ -11,11 +11,12 @@ public class ShipMove : MonoBehaviour
     public ControlsObj controls;
     public Vector2 direction { get; private set; }
     public UpgradeController controller;
+    public CheckpointMaster checkpoints;
     public ShipShooting shootingScript;
     [SerializeField]
     private float speed;
 
-
+    private Vector2 originalPos;
     private Rigidbody2D rb;
 
     public Animator spriteAnim,shieldAnim;
@@ -38,13 +39,11 @@ public class ShipMove : MonoBehaviour
         pastPositions = new List<Vector2>();        
         options = new List<GameObject>();
         rb = this.GetComponent<Rigidbody2D>();
+        originalPos = rb.position;
         shieldSprite.enabled = false;
         shieldAnim.enabled = false;
         controller = GameObject.Find("Canvas").GetComponent<UpgradeController>();
-        if (controller == null)
-        {
-            throw new Exception("UpgradeController Object not Found");
-        }
+        checkpoints = GameObject.Find("CheckPointMaster").GetComponent<CheckpointMaster>();
         shootingScript = this.GetComponent<ShipShooting>();
         if (shootingScript == null)
         {
@@ -188,6 +187,7 @@ public class ShipMove : MonoBehaviour
         isDed = true;
         shootingScript.ded = true;
         this.GetComponent<Collider2D>().enabled = false;
+        hd.gameObject.GetComponent<Collider2D>().enabled = false;
         shieldSprite.enabled = false;
         shieldAnim.enabled = false;        
         StartCoroutine(DedNow());        
@@ -198,13 +198,32 @@ public class ShipMove : MonoBehaviour
         yield return new WaitForSeconds(0.7f);//wait for animation to finish
         this.GetComponentInChildren<SpriteRenderer>().enabled = false;
         yield return new WaitForSeconds(1f);//wait for sound to finish
-        //Respawn if got more lives PENDING
-        StartCoroutine(GameOver());
+        if (stats.playerLifes - 1 >= 0)
+        {
+            Respawn();
+        }
+        else
+        {
+            StartCoroutine(GameOver());
+        }
+    }
+
+    public void Respawn()
+    {
+        rb.position = originalPos;
+        stats.UpdateLife(-1);
+        spriteAnim.SetBool("IsDed", false);
+        isDed = false;
+        shootingScript.ded = false;
+        checkpoints.MoveStage();
+        this.GetComponent<Collider2D>().enabled = true;
+        hd.gameObject.GetComponent<Collider2D>().enabled = true;
+        this.GetComponentInChildren<SpriteRenderer>().enabled = true;
     }
 
     IEnumerator GameOver()
     {
-        //GameOverStuff
+        stats.UpdateLife(-1);
         stats.scrollSpeed = 0;
         yield return new WaitForSeconds(6f);
         ReturnToMenu();

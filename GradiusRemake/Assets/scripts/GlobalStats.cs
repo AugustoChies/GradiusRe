@@ -11,7 +11,7 @@ public class GlobalStats : ScriptableObject
     public Vector2 playerPosition;
 
     public delegate void GlobalUpdate();
-    public GlobalUpdate UpdateScoreEvent,UpdateLivesEvent;
+    public GlobalUpdate UpdateScoreEvent,UpdateLivesEvent, GameOverEvent;
 
     public void UpdateScore(int scoreAdd)
     {
@@ -21,8 +21,15 @@ public class GlobalStats : ScriptableObject
 
     public void UpdateLife(int lifeChange)
     {
-        playerLifes += lifeChange;
-        UpdateLivesEvent();
+        if (playerLifes < 0)
+        {
+            GameOverEvent();
+        }
+        else
+        {
+            playerLifes += lifeChange;
+            UpdateLivesEvent();
+        }
     }
 
 
