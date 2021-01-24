@@ -19,7 +19,7 @@ public class SonEnemy : BaseEnemy
 
    
 
-    void Awake()
+    void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
         hasntShot = true;
@@ -29,10 +29,7 @@ public class SonEnemy : BaseEnemy
        if(stats.playerPosition.y > this.rb.position.y)
            generalDirection.y = 2.3f;
        else
-           generalDirection.y =-2.3f;
-
-
-        
+           generalDirection.y =-2.3f;        
     }
 
     // Update is called once per frame

@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class ShipMove : MonoBehaviour
 {
     public GlobalStats stats;
+    public HazardList hazards;
     public int powerUpScore;
     public ControlsObj controls;
     public Vector2 direction { get; private set; }
@@ -36,6 +37,7 @@ public class ShipMove : MonoBehaviour
     void Awake()
     {
         stats.scrollSpeed = 1;
+        hazards.Initialize();
         pastPositions = new List<Vector2>();        
         options = new List<GameObject>();
         rb = this.GetComponent<Rigidbody2D>();
@@ -182,7 +184,8 @@ public class ShipMove : MonoBehaviour
     }
 
     public void Die()
-    {        
+    {
+        if (isDed) return;
         spriteAnim.SetBool("IsDed", true);
         isDed = true;
         shootingScript.ded = true;
@@ -210,6 +213,7 @@ public class ShipMove : MonoBehaviour
 
     public void Respawn()
     {
+        hazards.ClearScreen();
         rb.position = originalPos;
         stats.UpdateLife(-1);
         spriteAnim.SetBool("IsDed", false);
@@ -217,6 +221,7 @@ public class ShipMove : MonoBehaviour
         shootingScript.ded = false;
         checkpoints.MoveStage();
         this.GetComponent<Collider2D>().enabled = true;
+        hd.SetIFrames(0.5f);
         hd.gameObject.GetComponent<Collider2D>().enabled = true;
         this.GetComponentInChildren<SpriteRenderer>().enabled = true;
     }

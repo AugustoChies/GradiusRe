@@ -24,12 +24,6 @@ public class WalkingCannon : BaseEnemy
         farEnough = false;
         walkNow = true;
         stopNow = false;
-        
-    }
-
-
-    void Awake()
-    {
         StartCoroutine(WalkingNow());
     }
 

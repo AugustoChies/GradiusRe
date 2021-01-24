@@ -5,6 +5,7 @@ using UnityEngine;
 //Base Enemy class, future parent of all enemies, not fully integrated yet
 public class BaseEnemy : MonoBehaviour
 {
+    public HazardList hazards;
     public int life, scoreValue;
     public float baseSpeed;
     public GlobalStats stats;
@@ -13,14 +14,18 @@ public class BaseEnemy : MonoBehaviour
     protected Rigidbody2D rb;
     public Animator spriteAnim;
     public bool isItDed;
-    
 
+    private void Awake()
+    {
+        hazards.enemies.Add(this);
+    }
 
     public void Die()
     {
         this.GetComponent<Collider2D>().enabled = false;
         spriteAnim.SetBool("IsDed", true);
         isItDed = true;
+        hazards.enemies.Remove(this);
         stats.UpdateScore(scoreValue);
         StartCoroutine(DedNow());
     }
@@ -52,7 +57,7 @@ public class BaseEnemy : MonoBehaviour
         if (dropsPowerUp)
         {
             Instantiate(PUPrefab, this.transform.position, Quaternion.identity);
-        }
+        }        
         Destroy(this.gameObject);
     }
 }

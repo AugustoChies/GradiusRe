@@ -94,6 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 904c1a4db44a33940a378645ed452bf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hazards: {fileID: 11400000, guid: c66a8e73e98d19e489ddd349780d1bc9, type: 2}
   life: 1
   scoreValue: 100
   baseSpeed: 15

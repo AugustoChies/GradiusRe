@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class CanvasTexts : MonoBehaviour
 {
-    public TextMeshProUGUI livestxt, scoretxt, highscoretxt;
+    public List<Image> upgrades;
+    public TextMeshProUGUI livestxt, scoretxt, highscoretxt, gameOvertxt;
     public GlobalStats stats;
     // Start is called before the first frame update
     void Start()
@@ -47,6 +49,10 @@ public class CanvasTexts : MonoBehaviour
 
     public void GameOver()
     {
-        
+        foreach (var up in upgrades)
+        {
+            up.enabled = false;
+        }
+        gameOvertxt.enabled = true;
     }
 }

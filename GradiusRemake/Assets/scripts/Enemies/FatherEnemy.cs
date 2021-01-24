@@ -17,14 +17,9 @@ public class FatherEnemy : BaseEnemy
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
-    }
-
-    void Awake()
-    {
-        canStart = true;       
+        canStart = true;
         StartCoroutine(CreateSon());
     }
-
 
     IEnumerator CreateSon()
     {

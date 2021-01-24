@@ -164,7 +164,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97055492985d2ff4396be0ad29a54026, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hazards: {fileID: 11400000, guid: c66a8e73e98d19e489ddd349780d1bc9, type: 2}
   life: 1
+  scoreValue: 0
   baseSpeed: 0
   stats: {fileID: 11400000, guid: cb31a4a88c4efcb4282a10152180d085, type: 2}
   PUPrefab: {fileID: 8063585679436087660, guid: 716458aba186f824497959afbfcaa6ed,

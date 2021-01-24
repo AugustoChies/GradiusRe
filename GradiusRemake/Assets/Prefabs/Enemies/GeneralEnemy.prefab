@@ -93,7 +93,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d92b9acc9eff85c44b2d04b35dd3ee61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hazards: {fileID: 11400000, guid: c66a8e73e98d19e489ddd349780d1bc9, type: 2}
   life: 1
+  scoreValue: 0
   baseSpeed: 15
   stats: {fileID: 11400000, guid: cb31a4a88c4efcb4282a10152180d085, type: 2}
   PUPrefab: {fileID: 8063585679436087660, guid: 716458aba186f824497959afbfcaa6ed,
@@ -106,7 +108,7 @@ MonoBehaviour:
   generalSpeed: 0
   goingUp: 0
   goingDown: 0
-  Isded: 0
+  scrollDirection: {x: -1, y: 0}
 --- !u!1 &3707137170147401870
 GameObject:
   m_ObjectHideFlags: 0

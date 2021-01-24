@@ -16,13 +16,8 @@ public class facnenemy : BaseEnemy
         isItDed = false; 
         fan = this.GetComponent<Rigidbody2D>();
         goingUp = false;
+        fanDirection.x = -4;
     }    
-   
-    void Awake()
-    {
-        fanDirection.x = -4;        
-    }
-
 
     void OnTriggerEnter2D(Collider2D col)
     {

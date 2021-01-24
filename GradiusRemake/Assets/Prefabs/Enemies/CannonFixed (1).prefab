@@ -164,7 +164,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d84a4ba4d930a074eb79d177c5094250, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hazards: {fileID: 11400000, guid: c66a8e73e98d19e489ddd349780d1bc9, type: 2}
   life: 1
+  scoreValue: 0
+  baseSpeed: 0
   stats: {fileID: 11400000, guid: cb31a4a88c4efcb4282a10152180d085, type: 2}
   PUPrefab: {fileID: 0}
   dropsPowerUp: 0
@@ -178,3 +181,4 @@ MonoBehaviour:
   diagonal: 0
   CannonTiro: {fileID: 746253890731846276, guid: 004ddec17d057f942be4a3814b2c99eb,
     type: 3}
+  scrollDirection: {x: -1, y: 0}

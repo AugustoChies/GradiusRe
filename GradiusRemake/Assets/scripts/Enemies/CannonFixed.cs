@@ -20,16 +20,8 @@ public class CannonFixed : BaseEnemy
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
-        
-        
-    }
-
-    void Awake()
-    {
-        
         StartCoroutine(Starting());
         StartCoroutine(TimeToShoot());
-        
     }
 
     // Update is called once per frame

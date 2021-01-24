@@ -75,6 +75,7 @@ public class BossBehavior : BaseEnemy
         this.GetComponent<Collider2D>().enabled = false;
         spriteAnim.SetBool("IsDed", true);
         isItDed = true;
+        hazards.enemies.Remove(this);
         stats.scrollSpeed = originalScroll;
         stats.UpdateScore(scoreValue);
         StartCoroutine(DedNow());

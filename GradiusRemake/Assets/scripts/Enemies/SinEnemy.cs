@@ -20,16 +20,8 @@ public class SinEnemy : BaseEnemy
         rb = this.GetComponent<Rigidbody2D>();
         generalDirection.x -= 5;
         goingUp = true;
-        
-    }   
-
-    void Awake()
-    {
         generalDirection.y = nullExempleDirection.y + 3f;
-        
     }
-
-    
    
 
     // Update is called once per frame
