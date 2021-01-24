@@ -76,7 +76,7 @@ public class BossBehavior : BaseEnemy
         spriteAnim.SetBool("IsDed", true);
         isItDed = true;
         stats.scrollSpeed = originalScroll;
-        //colocar aqui algo q aumente a pontuação.............................................................................................................
+        stats.UpdateScore(scoreValue);
         StartCoroutine(DedNow());
     }
 

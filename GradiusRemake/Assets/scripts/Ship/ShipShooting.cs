@@ -15,7 +15,7 @@ public class ShipShooting : MonoBehaviour
     protected Vector3 stashPos = new Vector3(0, 100, 0);
     public Transform fireOriginPos;
     public UpgradeController controller;
-
+    public bool ded;
     public List<GameObject> optionsRef;
     // Start is called before the first frame update
     void Awake()
@@ -72,6 +72,7 @@ public class ShipShooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (ded) return;
         if (Input.GetKeyDown(controls.a))
         {
             continuousShotDelay = 0;

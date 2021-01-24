@@ -425,6 +425,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: cb31a4a88c4efcb4282a10152180d085, type: 2}
+  powerUpScore: 500
   controls: {fileID: 11400000, guid: e716421d3c73acf4d89c974a8eaf7870, type: 2}
   controller: {fileID: 0}
   shootingScript: {fileID: 0}
@@ -434,6 +435,7 @@ MonoBehaviour:
   shieldSprite: {fileID: 9050783136408314767}
   hd: {fileID: 6841307793806791561}
   shieldMaxHp: 5
+  shieldHP: 0
   isDed: 0
   pastPositionsSizeLimit: 50
   optionMovementStartDelay: 12

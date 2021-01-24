@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 public class ShipMove : MonoBehaviour
 {
     public GlobalStats stats;
+    public int powerUpScore;
     public ControlsObj controls;
     public Vector2 direction { get; private set; }
     public UpgradeController controller;
@@ -153,6 +155,7 @@ public class ShipMove : MonoBehaviour
     public void GetPowerUp()
     {
         controller.NextCurrent();
+        stats.UpdateScore(powerUpScore);
     }
 
     public void GetHit(int damage)
@@ -163,6 +166,10 @@ public class ShipMove : MonoBehaviour
             if(shieldHP <= 0)
             {
                 DisableShield();
+                if(shieldHP < 0)
+                {
+                    Die();
+                }                   
             }
             else if(shieldHP == 1)
             {
@@ -176,21 +183,42 @@ public class ShipMove : MonoBehaviour
     }
 
     public void Die()
-    {
-        //die
-        //Debug.Log("I am die. Thank you forever.");
+    {        
         spriteAnim.SetBool("IsDed", true);
         isDed = true;
+        shootingScript.ded = true;
         this.GetComponent<Collider2D>().enabled = false;
         shieldSprite.enabled = false;
-        shieldAnim.enabled = false;
+        shieldAnim.enabled = false;        
         StartCoroutine(DedNow());        
     }
 
     IEnumerator DedNow()
     {
-        yield return new WaitForSeconds(0.7f);
-        this.gameObject.SetActive(false); //desliga o objeto
+        yield return new WaitForSeconds(0.7f);//wait for animation to finish
+        this.GetComponentInChildren<SpriteRenderer>().enabled = false;
+        yield return new WaitForSeconds(1f);//wait for sound to finish
+        //Respawn if got more lives PENDING
+        StartCoroutine(GameOver());
     }
+
+    IEnumerator GameOver()
+    {
+        //GameOverStuff
+        stats.scrollSpeed = 0;
+        yield return new WaitForSeconds(6f);
+        ReturnToMenu();
+    }
+
+    public void ReturnToMenu()
+    {
+        if(stats.score > PlayerPrefs.GetInt("Highscore"))
+        {
+            PlayerPrefs.SetInt("Highscore",stats.score);           
+        }
+        SceneManager.LoadScene("MainMenu");
+    }
+
+
 
 }

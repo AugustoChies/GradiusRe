@@ -5,7 +5,7 @@ using UnityEngine;
 //Base Enemy class, future parent of all enemies, not fully integrated yet
 public class BaseEnemy : MonoBehaviour
 {
-    public int life;
+    public int life, scoreValue;
     public float baseSpeed;
     public GlobalStats stats;
     public GameObject PUPrefab;
@@ -20,8 +20,8 @@ public class BaseEnemy : MonoBehaviour
     {
         this.GetComponent<Collider2D>().enabled = false;
         spriteAnim.SetBool("IsDed", true);
-        isItDed = true;        
-        //colocar aqui algo q aumente a pontuação.............................................................................................................
+        isItDed = true;
+        stats.UpdateScore(scoreValue);
         StartCoroutine(DedNow());
     }
 
