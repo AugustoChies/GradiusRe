@@ -15,4 +15,5 @@ MonoBehaviour:
   dead: 0
   scrollSpeed: 1
   playerLifes: 3
-  playerPosition: {x: -3.1999993, y: -0.68423617}
+  score: 0
+  playerPosition: {x: -2.6, y: -0.44423628}

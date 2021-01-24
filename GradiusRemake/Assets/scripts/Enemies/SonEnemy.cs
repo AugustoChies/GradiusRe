@@ -15,21 +15,16 @@ public class SonEnemy : BaseEnemy
     public Vector2 scrollDirection = new Vector2(-1,0);
 
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        rb = this.GetComponent<Rigidbody2D>();
-    }
-
+   
     void Awake()
     {
+        rb = this.GetComponent<Rigidbody2D>();
         hasntShot = true;
-        hasReached = false;
-
-      // if(stats.playerPosition.y > this.rb.position.y)
-      //     generalDirection.y = 2;
-      // else
-      //     generalDirection.y =-2;
+        hasReached = false;        
+       if(stats.playerPosition.y > this.rb.position.y)
+           generalDirection.y = 2;
+       else
+           generalDirection.y =-2;
         
     }
 
