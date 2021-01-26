@@ -135,7 +135,7 @@ MonoBehaviour:
   spriteAnim: {fileID: 5005557968560443037}
   isItDed: 0
   originalScroll: 0
-  heighlimit: {x: -2.2, y: 3.5}
+  heighlimit: {x: -2.4, y: 3.5}
   forwardSpeed: 1
   flyForwardTime: 0.5
   shotDelay: 1.5
