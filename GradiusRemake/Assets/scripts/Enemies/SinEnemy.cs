@@ -29,9 +29,9 @@ public class SinEnemy : BaseEnemy
     {
         if(!isItDed)
         {
-        if (generalDirection.y >= 7)
+        if (generalDirection.y >= 6)
             goingUp = false;
-        if (generalDirection.y <= -7)
+        if (generalDirection.y <= -6)
             goingUp = true;
 
         

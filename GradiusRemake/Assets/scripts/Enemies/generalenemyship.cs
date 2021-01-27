@@ -41,14 +41,14 @@ public class generalenemyship : BaseEnemy
             }
             if ((stats.playerPosition.y - 0.1) > this.rb.position.y)
             {
-                generalDirection.y += 5;//ver aqui valor de velocidade quanto sobe ou desce
+                generalDirection.y += 1;//ver aqui valor de velocidade quanto sobe ou desce
                 goingUp = true;
                 spriteAnim.SetBool("Up", goingUp);
             }
             else
             if ((stats.playerPosition.y + 0.1) < this.rb.position.y)
             {
-                generalDirection.y -= 5;//ver aqui valor
+                generalDirection.y -= 1;//ver aqui valor
                 goingDown = true;
                 spriteAnim.SetBool("Down", goingDown);
             }

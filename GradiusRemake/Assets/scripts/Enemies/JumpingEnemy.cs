@@ -12,6 +12,7 @@ public class JumpingEnemy : BaseEnemy
     public int jumps;
     public Vector2 scrollDirection = new Vector2(-1,0);
     public float jumpSpeed;
+    public float horizontalSpeed;
     
     
     
@@ -20,8 +21,9 @@ public class JumpingEnemy : BaseEnemy
     // Start is called before the first frame update
     void Start()
     {        
+        horizontalSpeed = 3.5f;
         rb = this.GetComponent<Rigidbody2D>();
-        generalDirection.x = -2;
+        generalDirection.x = -horizontalSpeed;
         jumps = -1;
         goingLeft = false;
         jumpStart = true;
@@ -33,6 +35,9 @@ public class JumpingEnemy : BaseEnemy
     // Update is called once per frame
     void Update()
     {
+
+        if(!isItDed)
+        {
         if(this.rb.position.y < -3 && jumpStart)//ajustar aqui o valor do chao
         {
             rb.velocity = Vector2.zero;
@@ -50,14 +55,20 @@ public class JumpingEnemy : BaseEnemy
         {
             jumps = 0;
             goingLeft = true;
-            generalDirection.x = 2;
+            generalDirection.x = horizontalSpeed;
         }else if(goingLeft && (jumps == 1))
         {
             jumps = 0;
             goingLeft = false;
-            generalDirection.x = -2;
+            generalDirection.x = -horizontalSpeed;
         }
         transform.position = this.rb.position + generalDirection * Time.deltaTime; 
+        }else
+        {
+            rb.gravityScale = 0;
+            rb.velocity = Vector2.zero;
+            transform.position = this.rb.position + scrollDirection * stats.scrollSpeed * Time.deltaTime;
+        }
 
 
     }
@@ -65,6 +76,7 @@ public class JumpingEnemy : BaseEnemy
 
     IEnumerator JumpingNow()
     {
+        
         canJump = false;
         jumpStart = false;
         rb.AddForce(new Vector2(0,jumpSpeed));
