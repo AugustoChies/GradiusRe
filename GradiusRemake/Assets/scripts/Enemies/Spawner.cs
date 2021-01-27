@@ -14,15 +14,7 @@ public class Spawner : MonoBehaviour
     void Start()
     {
         visualRepresentation.enabled = false;
-        //rb = this.GetComponent<Rigidbody2D>();
-    }
-
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        //transform.Translate(Vector2.left * stats.scrollSpeed * Time.deltaTime);
-        // rb.MovePosition(rb.position + Vector2.left * stats.scrollSpeed * Time.deltaTime);
-    }
+    }   
 
     private void OnTriggerEnter2D(Collider2D other)
     {
