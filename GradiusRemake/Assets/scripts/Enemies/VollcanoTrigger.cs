@@ -10,16 +10,17 @@ public class VollcanoTrigger : MonoBehaviour
 
 
     private void OnTriggerEnter2D(Collider2D other)
-    {       
+    {      
+        
         if (other.gameObject.layer == 8)//camborder
         {
             if (this.transform.position.x > Camera.main.transform.position.x)
             {
                 for (int i = 0; i < volcanoObjects.Length; i++)
                 {
-                    volcanoObjects[i].SetActive(true);
-                    StartCoroutine(Eruption());
+                    volcanoObjects[i].SetActive(true);                    
                 }
+                StartCoroutine(Eruption());
             }
         }
     }
