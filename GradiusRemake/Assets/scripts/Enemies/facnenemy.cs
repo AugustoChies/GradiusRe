@@ -24,6 +24,7 @@ public class facnenemy : BaseEnemy
         if (col.gameObject.layer == 8)//camborder
         {
             creator.fans.Remove(this.gameObject);
+            hazards.enemies.Remove(this);
             Destroy(this.gameObject);
         }
         else if (col.CompareTag("Bullet"))

@@ -21,7 +21,7 @@ public class GlobalStats : ScriptableObject
 
     public void UpdateLife(int lifeChange)
     {
-        if (playerLifes < 0)
+        if (playerLifes <= 0)
         {
             GameOverEvent();
         }

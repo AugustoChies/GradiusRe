@@ -21,7 +21,7 @@ public class JumpingEnemy : BaseEnemy
     // Start is called before the first frame update
     void Start()
     {        
-        horizontalSpeed = 3.5f;
+        horizontalSpeed = 4f;
         rb = this.GetComponent<Rigidbody2D>();
         generalDirection.x = -horizontalSpeed;
         jumps = -1;

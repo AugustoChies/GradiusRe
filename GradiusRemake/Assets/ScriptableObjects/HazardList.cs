@@ -25,7 +25,8 @@ public class HazardList : ScriptableObject
     {
         for (int i = 0; i < enemies.Count; i++)
         {
-            Destroy(enemies[i].gameObject);
+            if(enemies[i].gameObject != null)
+                Destroy(enemies[i].gameObject);
         }
         for (int i = 0; i < misc.Count; i++)
         {

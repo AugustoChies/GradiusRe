@@ -12,9 +12,7 @@ public class BackGroundSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        currentImages = new List<GameObject>();
-        SpawnBackground(new Vector3(0.0f, 0.6f, 0.0f));
-        SpawnBackground(spawnPosition);
+        Reset();       
     }
 
     // Update is called once per frame
@@ -29,7 +27,7 @@ public class BackGroundSpawner : MonoBehaviour
 
     public void SpawnBackground(Vector3 spawn)
     {
-        GameObject token = Instantiate(backgroundprefab, spawn, Quaternion.identity, scrollerParent);
+        GameObject token = Instantiate(backgroundprefab, this.transform.position + spawn, Quaternion.identity, scrollerParent);
         currentImages.Add(token);
     }
 
@@ -38,5 +36,16 @@ public class BackGroundSpawner : MonoBehaviour
         GameObject token = currentImages[0];
         currentImages.RemoveAt(0);
         Destroy(token);
+    }
+
+    public void Reset()
+    {
+        for (int i = 0; i < currentImages.Count; i++)
+        {
+            Destroy(currentImages[i]);
+        }
+        currentImages = new List<GameObject>();
+        SpawnBackground(new Vector3(0.0f, 0.6f, 10.0f));
+        SpawnBackground(spawnPosition);
     }
 }

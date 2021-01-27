@@ -68,6 +68,7 @@ public class MenuCanvas : MonoBehaviour
         StartCoroutine(TextBlink());
         yield return new WaitForSeconds(startWaitTime);
         stats.playerLifes = 3;
+        stats.score = 0;
         SceneManager.LoadSceneAsync("Stage");
     }
 

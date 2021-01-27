@@ -5,20 +5,25 @@ using UnityEngine;
 public class VollcanoTrigger : MonoBehaviour
 {
     public GlobalStats stats;
-    public GameObject[] volcanoObjects;
+    public GameObject volcanoPrefab;
+    public List<GameObject> spawned;
+    public Transform[] spawnObjects;
     public float activeTime;
 
+ 
 
     private void OnTriggerEnter2D(Collider2D other)
     {      
         
         if (other.gameObject.layer == 8)//camborder
         {
+            spawned = new List<GameObject>();
             if (this.transform.position.x > Camera.main.transform.position.x)
             {
-                for (int i = 0; i < volcanoObjects.Length; i++)
+                for (int i = 0; i < spawnObjects.Length; i++)
                 {
-                    volcanoObjects[i].SetActive(true);                    
+                    spawned.Add(Instantiate(volcanoPrefab,spawnObjects[i].position,Quaternion.identity));
+                    spawned[i].GetComponent<Volcano>().creator = this;
                 }
                 StartCoroutine(Eruption());
             }
@@ -31,9 +36,12 @@ public class VollcanoTrigger : MonoBehaviour
         stats.scrollSpeed = 0;
         yield return new WaitForSeconds(activeTime);
         stats.scrollSpeed = OSpeed;
-        for (int i = 0; i < volcanoObjects.Length; i++)
+        for (int i = 0; i < spawned.Count; i++)
         {
-            volcanoObjects[i].SetActive(false);
-        }
+            if(spawned[i] != null)
+            {
+                spawned[i].GetComponent<Volcano>().SelfDelete();
+            }
+        }        
     }
 }

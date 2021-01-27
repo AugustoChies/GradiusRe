@@ -34,6 +34,7 @@ public class BaseEnemy : MonoBehaviour
     {
         if(col.gameObject.layer == 8)//camborder
         {
+            hazards.enemies.Remove(this);
             Destroy(this.gameObject);
         }
         if (col.CompareTag("Bullet"))

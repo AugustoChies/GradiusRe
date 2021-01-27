@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Volcano : MonoBehaviour
 {
+    public VollcanoTrigger creator;
+    public HazardList hazards;
     public GameObject rockPrefab;
     public Vector2 baseVector;
     public List<float> magnitudes;
@@ -13,6 +15,7 @@ public class Volcano : MonoBehaviour
     protected GameObject token;
     void Start()
     {
+        hazards.misc.Add(this.gameObject);
         StartCoroutine(SpawnRock());
     }
 
@@ -35,5 +38,11 @@ public class Volcano : MonoBehaviour
         token = Instantiate(rockPrefab, this.transform.position, Quaternion.identity);
         token.GetComponent<Rock>().force = GetRandDirection() * GetRandomMag();
         StartCoroutine(SpawnRock());
+    }
+
+    public void SelfDelete()
+    {
+        hazards.misc.Remove(this.gameObject);
+        Destroy(this.gameObject);
     }
 }

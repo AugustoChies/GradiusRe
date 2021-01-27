@@ -103,7 +103,7 @@ public class ShipMove : MonoBehaviour
 
     private void FixedUpdate()
     {       
-        rb.MovePosition(this.rb.position + direction.normalized * (speed + (speed/2 * controller.speedboost)) * Time.deltaTime);
+        rb.MovePosition(this.rb.position + direction.normalized * (speed + (speed/3 * controller.speedboost)) * Time.deltaTime);
         if(direction != Vector2.zero) // Only during movement
         {
             pastPositions.Add(rb.position);
@@ -211,19 +211,34 @@ public class ShipMove : MonoBehaviour
         }
     }
 
+    public void OptionsReset()
+    {
+        for (int i = 0; i < options.Count; i++)
+        {
+            Destroy(options[i]);
+        }
+        options.Clear();
+        pastPositions = new List<Vector2>();
+        pastPositions.Add(rb.position);//add position 0
+    }
+
     public void Respawn()
     {
         hazards.ClearScreen();
         rb.position = originalPos;
         stats.UpdateLife(-1);
+        stats.scrollSpeed = 1;
         spriteAnim.SetBool("IsDed", false);
         isDed = false;
         shootingScript.ded = false;
         checkpoints.MoveStage();
         this.GetComponent<Collider2D>().enabled = true;
+        OptionsReset();
+        controller.DeathReset();
         hd.SetIFrames(0.5f);
         hd.gameObject.GetComponent<Collider2D>().enabled = true;
         this.GetComponentInChildren<SpriteRenderer>().enabled = true;
+        Camera.main.gameObject.GetComponent<BackGroundSpawner>().Reset();
     }
 
     IEnumerator GameOver()

@@ -15,6 +15,7 @@ public class Rock : BaseEnemy
     {
         if (col.gameObject.layer == 8 || col.gameObject.layer == 10)//camborder
         {
+            hazards.enemies.Remove(this);
             Destroy(this.gameObject);
         }
         if (col.CompareTag("Bullet"))

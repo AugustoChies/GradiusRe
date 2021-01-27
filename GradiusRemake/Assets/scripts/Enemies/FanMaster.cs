@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FanMaster : MonoBehaviour
 {
+    public HazardList hazards;
     public List<GameObject> fans;
     public GameObject fanPrefab;
     public int spawnAmount;
@@ -12,7 +13,10 @@ public class FanMaster : MonoBehaviour
     public float spawnTime;
     public float firstPlayerY;
 
-    
+    private void Awake()
+    {
+        hazards.misc.Add(this.gameObject);             
+    }
 
     private void Start()
     {
@@ -26,6 +30,7 @@ public class FanMaster : MonoBehaviour
     {
         if(fans.Count == 0 && currentSpawnAmount == 0)
         {
+            hazards.misc.Remove(this.gameObject);
             Destroy(this.gameObject);
         }
     }
