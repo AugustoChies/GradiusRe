@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4240057212224170880}
+  - component: {fileID: 7782839908161335675}
   m_Layer: 0
   m_Name: Volcano
   m_TagString: Untagged
@@ -30,3 +31,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7782839908161335675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4240057212224170887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05e1997c5a52eef4aab4bc6bdec52429, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rockPrefab: {fileID: 1957773897368349578, guid: 825157187774de84684ff8107fd6e780,
+    type: 3}
+  baseVector: {x: 0, y: 1}
+  magnitudes:
+  - 13
+  - 17
+  - 20
+  angles:
+  - -10
+  - -5
+  - 0
+  - 5
+  - 10
+  - 3
+  - -3
+  rockSpawnDelay: 0.25

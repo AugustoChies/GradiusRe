@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Rock : BaseEnemy
 {
-
+    public Vector2 force;
     private void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
+        Yeet();
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -50,7 +51,7 @@ public class Rock : BaseEnemy
         Destroy(this.gameObject);
     }
 
-    public void Yeet(Vector2 force)
+    public void Yeet()
     {
         rb.AddForce(force,ForceMode2D.Impulse);
     }

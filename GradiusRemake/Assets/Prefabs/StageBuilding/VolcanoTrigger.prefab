@@ -26,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3131103761388018980}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.9299998, y: -0.27984682, z: -0.28741005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -48,7 +48,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: cb31a4a88c4efcb4282a10152180d085, type: 2}
-  volcanoObjects: []
+  volcanoObjects:
+  - {fileID: 3131103762465367048}
+  - {fileID: 8239573753240846617}
   activeTime: 18
 --- !u!61 &3131103761388019163
 BoxCollider2D:
@@ -107,12 +109,12 @@ PrefabInstance:
     - target: {fileID: 4240057212224170880, guid: fa1107e564bccd5408017163130c4ef1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.4650903
+      value: -10.08
       objectReference: {fileID: 0}
     - target: {fileID: 4240057212224170880, guid: fa1107e564bccd5408017163130c4ef1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.95
+      value: -2.41
       objectReference: {fileID: 0}
     - target: {fileID: 4240057212224170880, guid: fa1107e564bccd5408017163130c4ef1,
         type: 3}
@@ -164,8 +166,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: Volcano
       objectReference: {fileID: 0}
+    - target: {fileID: 4240057212224170887, guid: fa1107e564bccd5408017163130c4ef1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa1107e564bccd5408017163130c4ef1, type: 3}
+--- !u!1 &3131103762465367048 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4240057212224170887, guid: fa1107e564bccd5408017163130c4ef1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1271246382674956175}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3131103762465367055 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4240057212224170880, guid: fa1107e564bccd5408017163130c4ef1,
@@ -182,12 +195,12 @@ PrefabInstance:
     - target: {fileID: 4240057212224170880, guid: fa1107e564bccd5408017163130c4ef1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.91
+      value: -6.524909
       objectReference: {fileID: 0}
     - target: {fileID: 4240057212224170880, guid: fa1107e564bccd5408017163130c4ef1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.95
+      value: -2.41
       objectReference: {fileID: 0}
     - target: {fileID: 4240057212224170880, guid: fa1107e564bccd5408017163130c4ef1,
         type: 3}
@@ -239,8 +252,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: Volcano (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4240057212224170887, guid: fa1107e564bccd5408017163130c4ef1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa1107e564bccd5408017163130c4ef1, type: 3}
+--- !u!1 &8239573753240846617 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4240057212224170887, guid: fa1107e564bccd5408017163130c4ef1,
+    type: 3}
+  m_PrefabInstance: {fileID: 5228517804373306014}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8239573753240846622 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4240057212224170880, guid: fa1107e564bccd5408017163130c4ef1,
