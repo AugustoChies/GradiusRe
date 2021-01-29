@@ -233,8 +233,9 @@ MonoBehaviour:
   scoreValue: 0
   baseSpeed: 3
   stats: {fileID: 11400000, guid: cb31a4a88c4efcb4282a10152180d085, type: 2}
-  PUPrefab: {fileID: 0}
-  dropsPowerUp: 0
+  PUPrefab: {fileID: 8063585679436087660, guid: 716458aba186f824497959afbfcaa6ed,
+    type: 3}
+  dropsPowerUp: 1
   spriteAnim: {fileID: 6737017275883136213}
   isItDed: 0
   topRays:
