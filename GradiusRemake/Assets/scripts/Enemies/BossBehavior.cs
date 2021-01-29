@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BossBehavior : BaseEnemy
 {
+    public AudioMaster audio;
+    public AudioClip music;
     public float originalScroll;
     public Vector2 heighlimit;
     public float forwardSpeed;
@@ -74,6 +76,7 @@ public class BossBehavior : BaseEnemy
     {
         this.GetComponent<Collider2D>().enabled = false;
         spriteAnim.SetBool("IsDed", true);
+        audio.PlayNewMusicCommand(music);
         isItDed = true;
         hazards.enemies.Remove(this);
         stats.scrollSpeed = originalScroll;
