@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FatherEnemy : BaseEnemy
+public class FatherFlipped : BaseEnemy
 {
     public Vector2 generalDirection = Vector2.zero;
     public GameObject Son;
@@ -46,7 +46,7 @@ public class FatherEnemy : BaseEnemy
     private void CreatingSon()
     {
         spawnPlace = this.rb.position;
-        spawnPlace.y += 1;
+        spawnPlace.y -= 1;
         Instantiate(Son, spawnPlace, Quaternion.identity);
     }
 
