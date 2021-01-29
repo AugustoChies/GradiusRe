@@ -229,8 +229,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hazards: {fileID: 11400000, guid: c66a8e73e98d19e489ddd349780d1bc9, type: 2}
+  MAudio: {fileID: 11400000, guid: e908aeafc6a162540aa5e2db989e7783, type: 2}
+  deathNoises: {fileID: 8300000, guid: 17ec76dc63624e344890ff8fa2c21eb5, type: 3}
+  damageNoise: {fileID: 8300000, guid: fb30528a4c37a5d47b0c7de5c471a13c, type: 3}
   life: 1
-  scoreValue: 0
+  scoreValue: 100
   baseSpeed: 3
   stats: {fileID: 11400000, guid: cb31a4a88c4efcb4282a10152180d085, type: 2}
   PUPrefab: {fileID: 8063585679436087660, guid: 716458aba186f824497959afbfcaa6ed,

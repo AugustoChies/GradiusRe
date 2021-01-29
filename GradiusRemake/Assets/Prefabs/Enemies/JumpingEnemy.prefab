@@ -169,7 +169,7 @@ MonoBehaviour:
   deathNoises: {fileID: 8300000, guid: e6a09ca5ade779542919de0fdedc0646, type: 3}
   damageNoise: {fileID: 8300000, guid: fb30528a4c37a5d47b0c7de5c471a13c, type: 3}
   life: 0
-  scoreValue: 0
+  scoreValue: 100
   baseSpeed: 0
   stats: {fileID: 11400000, guid: cb31a4a88c4efcb4282a10152180d085, type: 2}
   PUPrefab: {fileID: 0}

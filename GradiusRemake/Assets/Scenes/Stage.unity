@@ -821,6 +821,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 984186098}
     m_Modifications:
+    - target: {fileID: 8004478558724005058, guid: 0fb523ef2b9c5d04c9a7a2e7cfeb439c,
+        type: 3}
+      propertyPath: spawnable
+      value: 
+      objectReference: {fileID: 6680608282810460806, guid: 5d88260ba49b79b4e95be66a2d5f75ea,
+        type: 3}
     - target: {fileID: 8004478558724005070, guid: 0fb523ef2b9c5d04c9a7a2e7cfeb439c,
         type: 3}
       propertyPath: m_Name
@@ -11989,7 +11995,7 @@ PrefabInstance:
         type: 3}
       propertyPath: spawnable
       value: 
-      objectReference: {fileID: 1190233685749619936, guid: 5cccbbf795f8dfe47ab98bf23f65dc7d,
+      objectReference: {fileID: 8755575427762479074, guid: 1a8d801ecd670074d9d01ffd8b8e8c4a,
         type: 3}
     - target: {fileID: 8940397609849968872, guid: 08096c3e0f308aa4aa552f088c7e7f34,
         type: 3}
