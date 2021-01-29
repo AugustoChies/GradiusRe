@@ -476,3 +476,4 @@ MonoBehaviour:
   controller: {fileID: 0}
   ded: 0
   optionsRef: []
+  stats: {fileID: 11400000, guid: cb31a4a88c4efcb4282a10152180d085, type: 2}

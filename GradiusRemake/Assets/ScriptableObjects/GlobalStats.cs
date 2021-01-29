@@ -4,7 +4,7 @@ using UnityEngine;
 [CreateAssetMenu]
 public class GlobalStats : ScriptableObject
 {
-    public bool dead;
+    public bool dead,paused;
     public float scrollSpeed;
     public int playerLifes;
     public int score;

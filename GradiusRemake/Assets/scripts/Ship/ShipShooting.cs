@@ -17,6 +17,7 @@ public class ShipShooting : MonoBehaviour
     public UpgradeController controller;
     public bool ded;
     public List<GameObject> optionsRef;
+    public GlobalStats stats;
     // Start is called before the first frame update
     void Awake()
     {
@@ -72,6 +73,7 @@ public class ShipShooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (stats.paused) return;
         if (ded) return;
         if (Input.GetKeyDown(controls.a))
         {

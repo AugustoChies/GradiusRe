@@ -474,7 +474,7 @@ MonoBehaviour:
   highScoreText: {fileID: 2081005383}
   cursor: {fileID: 103726869}
   startWaitTime: 2
-  cursorBlinkTime: 0.5
+  cursorBlinkTime: 0.25
 --- !u!1 &544822166
 GameObject:
   m_ObjectHideFlags: 0

@@ -43,20 +43,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05e1997c5a52eef4aab4bc6bdec52429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  creator: {fileID: 0}
   hazards: {fileID: 11400000, guid: c66a8e73e98d19e489ddd349780d1bc9, type: 2}
   rockPrefab: {fileID: 1957773897368349578, guid: 825157187774de84684ff8107fd6e780,
     type: 3}
   baseVector: {x: 0, y: 1}
   magnitudes:
-  - 13
-  - 17
+  - 14
+  - 18
   - 20
   angles:
+  - -15
   - -10
-  - -5
   - 0
-  - 5
   - 10
-  - 3
-  - -3
-  rockSpawnDelay: 0.25
+  - 15
+  - 5
+  - -5
+  rockSpawnDelay: 0.15

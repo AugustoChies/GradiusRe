@@ -7,7 +7,7 @@ public class HitDetection : MonoBehaviour
     public delegate void GotHit(int damage);
     public delegate void Contact();
     public GotHit hitByEnemy;
-    public Contact hitGround, gotPowerUp;
+    public Contact hitGround, gotPowerUp, gotBlu;
     public Rigidbody2D parentPosition;
     protected Rigidbody2D rb;
     public bool iframes;
@@ -44,6 +44,12 @@ public class HitDetection : MonoBehaviour
         {
 
             gotPowerUp();
+            Destroy(collision.gameObject);
+        }
+        if (collision.CompareTag("PowerBlu"))
+        {
+
+            gotBlu();
             Destroy(collision.gameObject);
         }
     }    

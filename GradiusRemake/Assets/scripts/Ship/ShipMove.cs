@@ -37,6 +37,7 @@ public class ShipMove : MonoBehaviour
     void Awake()
     {
         stats.scrollSpeed = 1;
+        stats.paused = false;
         hazards.Initialize();
         pastPositions = new List<Vector2>();        
         options = new List<GameObject>();
@@ -57,6 +58,7 @@ public class ShipMove : MonoBehaviour
         hd.hitByEnemy += GetHit;
         hd.hitGround += Die;
         hd.gotPowerUp += GetPowerUp;
+        hd.gotBlu += GetBlu;
         pastPositions.Add(rb.position);//add position 0
         isDed = false;
     }
@@ -66,8 +68,21 @@ public class ShipMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    
-        
+        if(Input.GetKeyDown(controls.start))
+        {
+            if(stats.paused)
+            {
+                Time.timeScale = 1;
+                stats.paused = false;
+            }
+            else
+            {
+                Time.timeScale = 0;
+                stats.paused = true;
+            }
+        }
+
+        if (stats.paused) return;
         Vector2 temp_direction = Vector2.zero;
         if (Input.GetKey(controls.up))
         {
@@ -102,7 +117,8 @@ public class ShipMove : MonoBehaviour
     }
 
     private void FixedUpdate()
-    {       
+    {
+        if (stats.paused) return;
         rb.MovePosition(this.rb.position + direction.normalized * (speed + (speed/3 * controller.speedboost)) * Time.deltaTime);
         if(direction != Vector2.zero) // Only during movement
         {
@@ -156,6 +172,12 @@ public class ShipMove : MonoBehaviour
     public void GetPowerUp()
     {
         controller.NextCurrent();
+        stats.UpdateScore(powerUpScore);
+    }
+
+    public void GetBlu()
+    {
+        hazards.KillEnemies();
         stats.UpdateScore(powerUpScore);
     }
 

@@ -7,6 +7,7 @@ public enum UpgradeType {speed,missile,_double,laser,option,shield };
 
 public class UpgradeController : MonoBehaviour
 {
+    public GlobalStats stats;
     public ControlsObj controls;
     public UpgradeIndicator[] indicators;
     public int currentSelected;
@@ -28,6 +29,7 @@ public class UpgradeController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (stats.paused) return;
         if(Input.GetKeyDown(controls.b))
         {
             if(currentSelected > -1)

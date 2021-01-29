@@ -11,6 +11,7 @@ TagManager:
   - Power
   - Climbable
   - AITrigger
+  - PowerBlu
   layers:
   - Default
   - TransparentFX

@@ -15,9 +15,10 @@ public class HazardList : ScriptableObject
 
     public void KillEnemies()
     {
-        for (int i = 0; i < enemies.Count; i++)
+        List<BaseEnemy> clone = new List<BaseEnemy>(enemies);
+        for (int i = 0; i < clone.Count; i++)
         {
-            enemies[i].Die();
+            clone[i].Die();
         }       
     }
 
