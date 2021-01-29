@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class ShipMove : MonoBehaviour
 {
     public GlobalStats stats;
+    public AudioMaster audio;
     public HazardList hazards;
     public int powerUpScore;
     public ControlsObj controls;
@@ -68,20 +69,6 @@ public class ShipMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(controls.start))
-        {
-            if(stats.paused)
-            {
-                Time.timeScale = 1;
-                stats.paused = false;
-            }
-            else
-            {
-                Time.timeScale = 0;
-                stats.paused = true;
-            }
-        }
-
         if (stats.paused) return;
         Vector2 temp_direction = Vector2.zero;
         if (Input.GetKey(controls.up))
@@ -208,6 +195,7 @@ public class ShipMove : MonoBehaviour
     public void Die()
     {
         if (isDed) return;
+        audio.StopMusicCommand();
         spriteAnim.SetBool("IsDed", true);
         isDed = true;
         shootingScript.ded = true;
@@ -222,7 +210,7 @@ public class ShipMove : MonoBehaviour
     {
         yield return new WaitForSeconds(0.7f);//wait for animation to finish
         this.GetComponentInChildren<SpriteRenderer>().enabled = false;
-        yield return new WaitForSeconds(1f);//wait for sound to finish
+        yield return new WaitForSeconds(1.5f);//wait for sound to finish
         if (stats.playerLifes - 1 >= 0)
         {
             Respawn();

@@ -64,7 +64,7 @@ public class MenuCanvas : MonoBehaviour
 
     IEnumerator StartSequence()
     {
-        //playsound
+        this.GetComponent<AudioSource>().Play();
         StartCoroutine(TextBlink());
         yield return new WaitForSeconds(startWaitTime);
         stats.playerLifes = 3;
