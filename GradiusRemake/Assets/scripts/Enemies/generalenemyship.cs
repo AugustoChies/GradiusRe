@@ -23,6 +23,7 @@ public class generalenemyship : BaseEnemy
         isStarting = true;
         generalDirection.x -= 3;
         generalSpeed = 1;
+        scoreValue = 100;
     }   
 
    

@@ -12,6 +12,7 @@ public class CannonFixed : BaseEnemy
     public float yDistanceToShip;
     public float xDistanceToShipShoot;
     public float yDistanceToShipShoot;
+    public SpriteRenderer myRenderer;
     public float diagonal;
     public GameObject CannonTiro;
     public Vector2 scrollDirection = new Vector2(-1,0);
@@ -22,6 +23,7 @@ public class CannonFixed : BaseEnemy
         rb = this.GetComponent<Rigidbody2D>();
         StartCoroutine(Starting());
         StartCoroutine(TimeToShoot());
+        scoreValue = 100;
     }
 
     // Update is called once per frame
@@ -32,6 +34,10 @@ public class CannonFixed : BaseEnemy
         yDistanceToShip = stats.playerPosition.y - this.rb.position.y;
         xDistanceToShipShoot = xDistanceToShip;
         yDistanceToShipShoot = yDistanceToShip;
+        if(xDistanceToShipShoot < 0)
+            myRenderer.flipX = true;
+            else
+            myRenderer.flipX = false;
         if(yDistanceToShip < 0)
             yDistanceToShip = yDistanceToShip * -1;
         if(xDistanceToShip < 0)

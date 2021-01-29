@@ -21,6 +21,7 @@ public class SinEnemy : BaseEnemy
         generalDirection.x -= 5;
         goingUp = true;
         generalDirection.y = nullExempleDirection.y + 3f;
+        scoreValue = 100;
     }
    
 

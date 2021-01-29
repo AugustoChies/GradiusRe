@@ -26,6 +26,7 @@ public class WalkingCannon : BaseEnemy
         walkNow = true;
         stopNow = false;
         originalY = rb.position.y;
+        scoreValue = 100;
         StartCoroutine(WalkingNow());
     }
 

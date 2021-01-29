@@ -8,6 +8,7 @@ public class Rock : BaseEnemy
     private void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
+        scoreValue = 100;
         Yeet();
     }
 

@@ -178,6 +178,7 @@ MonoBehaviour:
   yDistanceToShip: 0
   xDistanceToShipShoot: 0
   yDistanceToShipShoot: 0
+  myRenderer: {fileID: 2646262521427521314}
   diagonal: 0
   CannonTiro: {fileID: 746253890731846276, guid: 004ddec17d057f942be4a3814b2c99eb,
     type: 3}

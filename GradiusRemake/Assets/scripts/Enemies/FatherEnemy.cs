@@ -11,6 +11,7 @@ public class FatherEnemy : BaseEnemy
     public bool canStart = false;
     public Vector2 scrollDirection = new Vector2(-1,0);
     public Vector2 spawnPlace = Vector2.zero;
+    
 
 
     // Start is called before the first frame update
@@ -19,6 +20,7 @@ public class FatherEnemy : BaseEnemy
         rb = this.GetComponent<Rigidbody2D>();
         life = 3;
         canStart = true;
+        scoreValue = 1000;
         StartCoroutine(CreateSon());
     }
 
