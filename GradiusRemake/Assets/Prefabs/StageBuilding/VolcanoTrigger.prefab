@@ -77,6 +77,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1553000d3a39d404199b01ae14f0a749, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audio: {fileID: 11400000, guid: e908aeafc6a162540aa5e2db989e7783, type: 2}
+  bossMusic: {fileID: 8300000, guid: e03dca617f10569469e37f6db1ab12a0, type: 3}
   stats: {fileID: 11400000, guid: cb31a4a88c4efcb4282a10152180d085, type: 2}
   volcanoPrefab: {fileID: 4240057212224170887, guid: fa1107e564bccd5408017163130c4ef1,
     type: 3}

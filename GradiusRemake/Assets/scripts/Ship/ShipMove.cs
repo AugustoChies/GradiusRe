@@ -8,6 +8,7 @@ public class ShipMove : MonoBehaviour
 {
     public GlobalStats stats;
     public AudioMaster audio;
+    public AudioClip gameover,death;
     public HazardList hazards;
     public int powerUpScore;
     public ControlsObj controls;
@@ -208,6 +209,8 @@ public class ShipMove : MonoBehaviour
 
     IEnumerator DedNow()
     {
+        this.GetComponent<AudioSource>().clip = death;
+        this.GetComponent<AudioSource>().Play();
         yield return new WaitForSeconds(0.7f);//wait for animation to finish
         this.GetComponentInChildren<SpriteRenderer>().enabled = false;
         yield return new WaitForSeconds(1.5f);//wait for sound to finish
@@ -253,6 +256,7 @@ public class ShipMove : MonoBehaviour
 
     IEnumerator GameOver()
     {
+        audio.PlayNewMusicCommand(gameover);
         stats.UpdateLife(-1);
         stats.scrollSpeed = 0;
         yield return new WaitForSeconds(6f);

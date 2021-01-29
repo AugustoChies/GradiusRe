@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class VollcanoTrigger : MonoBehaviour
 {
+    public AudioMaster audio;
+    public AudioClip bossMusic;
     public GlobalStats stats;
     public GameObject volcanoPrefab;
     public List<GameObject> spawned;
@@ -13,11 +15,11 @@ public class VollcanoTrigger : MonoBehaviour
  
 
     private void OnTriggerEnter2D(Collider2D other)
-    {      
-        
+    {              
         if (other.gameObject.layer == 8)//camborder
         {
             spawned = new List<GameObject>();
+            audio.PlayNewMusicCommand(bossMusic);
             if (this.transform.position.x > Camera.main.transform.position.x)
             {
                 for (int i = 0; i < spawnObjects.Length; i++)
