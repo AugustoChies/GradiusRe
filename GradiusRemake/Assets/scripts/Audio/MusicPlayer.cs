@@ -6,7 +6,7 @@ public class MusicPlayer : MonoBehaviour
 {
     public GlobalStats stats;
     public ControlsObj controls;
-    protected AudioSource source;
+    public AudioSource source,pause;
     public AudioMaster master;
     // Start is called before the first frame update
     void Awake()
@@ -32,6 +32,7 @@ public class MusicPlayer : MonoBehaviour
             {
                 Time.timeScale = 0;
                 source.Pause();
+                pause.Play();
                 stats.paused = true;
             }
         }
