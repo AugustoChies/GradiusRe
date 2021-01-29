@@ -22,6 +22,7 @@ public class BossBehavior : BaseEnemy
         rb = this.GetComponent<Rigidbody2D>();
         movement = Vector2.left;
         maxHP = life;
+        scoreValue = 10500;
         StartCoroutine(StartFight());
     }
 
@@ -32,10 +33,12 @@ public class BossBehavior : BaseEnemy
         if(life/(float)maxHP < 0.66)
         {
             centerSpot.enabled = false;
+            stats.UpdateScore(1000);
         }
         if (life / (float)maxHP < 0.33)
         {
             spriteAnim.SetBool("Half", true);
+            stats.UpdateScore(1000);
         }
 
 

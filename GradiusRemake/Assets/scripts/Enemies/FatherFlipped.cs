@@ -13,6 +13,7 @@ public class FatherFlipped : BaseEnemy
     public Vector2 spawnPlace = Vector2.zero;
 
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +21,7 @@ public class FatherFlipped : BaseEnemy
         life = 3;
         canStart = true;
         StartCoroutine(CreateSon());
+        scoreValue = 1000;
     }
 
     IEnumerator CreateSon()

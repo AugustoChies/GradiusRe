@@ -29,6 +29,7 @@ public class JumpingEnemy : BaseEnemy
         jumpStart = true;
         canJump = false;
         jumpSpeed = 400f;
+        scoreValue = 100;
         
     }
 

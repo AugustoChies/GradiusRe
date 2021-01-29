@@ -17,6 +17,7 @@ public class facnenemy : BaseEnemy
         fan = this.GetComponent<Rigidbody2D>();
         goingUp = false;
         fanDirection.x = -4;
+        scoreValue = 100;
     }    
 
     void OnTriggerEnter2D(Collider2D col)
