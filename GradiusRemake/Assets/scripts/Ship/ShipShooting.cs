@@ -10,7 +10,8 @@ public class ShipShooting : MonoBehaviour
     public ControlsObj controls;
     protected float continuousShotDelay;//Holding fire button causes slower continuous shooting
     public float holdFireTime;
-
+    public AudioSource shotSource;
+    public AudioClip shotSound, laserSound;
     public GameObject regularshot, upwardShot, laser, missile;
     protected Vector3 stashPos = new Vector3(0, 100, 0);
     public Transform fireOriginPos;
@@ -99,6 +100,8 @@ public class ShipShooting : MonoBehaviour
         {
             if (activeLaserShots.Count < maxactive && inactiveLaserShots.Count > 0)
             {
+                shotSource.clip = laserSound;
+                shotSource.Play();
                 inactiveLaserShots[0].Activate(fireOriginPos.position, activeLaserShots);
             }
         }
@@ -109,11 +112,15 @@ public class ShipShooting : MonoBehaviour
                 maxactive = 1;
                 if (activeUpShots.Count < maxactive && inactiveUpShots.Count > 0)
                 {
+                    shotSource.clip = shotSound;
+                    shotSource.Play();
                     inactiveUpShots[0].Activate(fireOriginPos.position, activeUpShots);
                 }
             }
             if (activeRegShots.Count < maxactive && inactiveRegShots.Count > 0)
             {
+                shotSource.clip = shotSound;
+                shotSource.Play();
                 inactiveRegShots[0].Activate(fireOriginPos.position, activeRegShots);                
             }           
         }

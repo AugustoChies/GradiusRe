@@ -33,6 +33,7 @@ public class Rock : BaseEnemy
 
     public void Die()
     {
+        MAudio.playSoundCommand(deathNoises);
         this.GetComponent<Collider2D>().enabled = false;
         spriteAnim.SetBool("IsDed", true);
         isItDed = true;

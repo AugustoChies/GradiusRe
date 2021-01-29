@@ -94,6 +94,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hazards: {fileID: 11400000, guid: c66a8e73e98d19e489ddd349780d1bc9, type: 2}
+  MAudio: {fileID: 11400000, guid: e908aeafc6a162540aa5e2db989e7783, type: 2}
+  deathNoises: {fileID: 8300000, guid: 0348ce3b8589f234d8b48bb38d20a2a3, type: 3}
+  damageNoise: {fileID: 8300000, guid: fb30528a4c37a5d47b0c7de5c471a13c, type: 3}
   life: 1
   scoreValue: 0
   baseSpeed: 15

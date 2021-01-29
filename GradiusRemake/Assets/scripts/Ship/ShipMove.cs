@@ -7,8 +7,8 @@ using UnityEngine.SceneManagement;
 public class ShipMove : MonoBehaviour
 {
     public GlobalStats stats;
-    public AudioMaster audio;
-    public AudioClip gameover,death;
+    public AudioMaster Maudio;
+    public AudioClip gameover,death,grabPowerUp;
     public HazardList hazards;
     public int powerUpScore;
     public ControlsObj controls;
@@ -159,12 +159,16 @@ public class ShipMove : MonoBehaviour
 
     public void GetPowerUp()
     {
+        this.GetComponent<AudioSource>().clip = grabPowerUp;
+        this.GetComponent<AudioSource>().Play();
         controller.NextCurrent();
         stats.UpdateScore(powerUpScore);
     }
 
     public void GetBlu()
     {
+        this.GetComponent<AudioSource>().clip = grabPowerUp;
+        this.GetComponent<AudioSource>().Play();
         hazards.KillEnemies();
         stats.UpdateScore(powerUpScore);
     }
@@ -196,7 +200,7 @@ public class ShipMove : MonoBehaviour
     public void Die()
     {
         if (isDed) return;
-        audio.StopMusicCommand();
+        Maudio.StopMusicCommand();
         spriteAnim.SetBool("IsDed", true);
         isDed = true;
         shootingScript.ded = true;
@@ -256,7 +260,7 @@ public class ShipMove : MonoBehaviour
 
     IEnumerator GameOver()
     {
-        audio.PlayNewMusicCommand(gameover);
+        Maudio.PlayNewMusicCommand(gameover);
         stats.UpdateLife(-1);
         stats.scrollSpeed = 0;
         yield return new WaitForSeconds(6f);

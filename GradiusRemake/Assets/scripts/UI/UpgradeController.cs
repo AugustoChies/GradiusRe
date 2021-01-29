@@ -35,8 +35,9 @@ public class UpgradeController : MonoBehaviour
             if(currentSelected > -1)
             {
                 switch ((UpgradeType)currentSelected)
-                {
+                {                    
                     case UpgradeType.speed:
+                        this.GetComponent<AudioSource>().Play();
                         speedboost++;
                         indicators[(int)currentSelected].ChangeGraphic(0);
                         currentSelected = -1;
@@ -44,6 +45,7 @@ public class UpgradeController : MonoBehaviour
                     case UpgradeType.missile:
                         if (!missile)
                         {
+                            this.GetComponent<AudioSource>().Play();
                             missile = true;
                             indicators[(int)currentSelected].ChangeGraphic(2);
                             currentSelected = -1;
@@ -52,6 +54,7 @@ public class UpgradeController : MonoBehaviour
                     case UpgradeType._double:
                         if (!_double)
                         {
+                            this.GetComponent<AudioSource>().Play();
                             _double = true;
                             laser = false;
                             indicators[(int)currentSelected].ChangeGraphic(2);
@@ -62,6 +65,7 @@ public class UpgradeController : MonoBehaviour
                     case UpgradeType.laser:
                         if (!laser)
                         {
+                            this.GetComponent<AudioSource>().Play();
                             laser = true;
                             _double = false;
                             indicators[(int)currentSelected].ChangeGraphic(2);
@@ -72,6 +76,7 @@ public class UpgradeController : MonoBehaviour
                     case UpgradeType.option:
                         if (option < 2)
                         {
+                            this.GetComponent<AudioSource>().Play();
                             optionAction();
                             option++;
                             if(option == 2)
@@ -89,6 +94,7 @@ public class UpgradeController : MonoBehaviour
                     case UpgradeType.shield:
                         if (!shield)
                         {
+                            this.GetComponent<AudioSource>().Play();
                             shield = true;
                             shieldAction();
                             indicators[(int)currentSelected].ChangeGraphic(2);

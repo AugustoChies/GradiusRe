@@ -18,7 +18,7 @@ public class FatherEnemy : BaseEnemy
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
-        life = 3;
+        life = 4;
         canStart = true;
         scoreValue = 1000;
         StartCoroutine(CreateSon());

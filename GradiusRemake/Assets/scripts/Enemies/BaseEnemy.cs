@@ -6,6 +6,8 @@ using UnityEngine;
 public class BaseEnemy : MonoBehaviour
 {
     public HazardList hazards;
+    public AudioMaster MAudio;
+    public AudioClip deathNoises,damageNoise;
     public int life, scoreValue;
     public float baseSpeed;
     public GlobalStats stats;
@@ -16,12 +18,13 @@ public class BaseEnemy : MonoBehaviour
     public bool isItDed;
 
     private void Awake()
-    {
+    {        
         hazards.enemies.Add(this);
     }
 
     public void Die()
     {
+        MAudio.playSoundCommand(deathNoises);
         this.GetComponent<Collider2D>().enabled = false;
         spriteAnim.SetBool("IsDed", true);
         isItDed = true;
@@ -40,7 +43,8 @@ public class BaseEnemy : MonoBehaviour
         if (col.CompareTag("Bullet"))
         {
             life--;
-            if(life <= 0)
+            MAudio.playSoundCommand(damageNoise);
+            if (life <= 0)
                 Die();
         }
         else if (col.CompareTag("Player"))

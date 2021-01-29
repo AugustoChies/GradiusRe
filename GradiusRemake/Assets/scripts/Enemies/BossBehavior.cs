@@ -77,6 +77,7 @@ public class BossBehavior : BaseEnemy
 
     public void Die()
     {
+        MAudio.playSoundCommand(deathNoises);
         this.GetComponent<Collider2D>().enabled = false;
         spriteAnim.SetBool("IsDed", true);
         audio.PlayNewMusicCommand(music);
@@ -98,6 +99,7 @@ public class BossBehavior : BaseEnemy
         if (col.CompareTag("Bullet"))
         {
             life--;
+            MAudio.playSoundCommand(damageNoise);
             if (life <= 0)
                 Die();
         }       
